@@ -1,4 +1,4 @@
-# simple forum
+# Simple forum
 
 ## Project Setup
 

@@ -1,17 +1,34 @@
 <script setup lang="ts">
+import appData from '@/data.json'
+import { ref }   from "vue";
+
 defineProps<{
   msg: string
 }>()
+
+const categories = ref(appData.categories)
+const forums = ref(appData.forums)
+const stats = ref(appData.stats)
 </script>
 
 <template>
   <div class="greetings">
     <h1 class="green">{{ msg }}</h1>
-    <h3>
-      You’ve successfully created a project with
-      <a href="https://vitejs.dev/" target="_blank" rel="noopener">Vite</a> +
-      <a href="https://vuejs.org/" target="_blank" rel="noopener">Vue 3</a>. What's next?
-    </h3>
+  </div>
+
+  <div>
+    <h2>Categories</h2>
+    <ul>
+      <li v-for="category in categories">
+        <span>{{ category.name }}</span>
+      </li>
+    </ul>
+    <h2>Stats</h2>
+    <ul>
+      <li v-for="stat in stats">
+        <span>{{ stat }}</span>
+      </li>
+    </ul>
   </div>
 </template>
 

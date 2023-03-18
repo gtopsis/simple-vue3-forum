@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import HomePage from '../components/Welcome.vue'
+import Welcome from '../components/Welcome.vue'
 </script>
 
 <template>
   <main>
-    <HomePage msg="test"></HomePage>
+    <Welcome msg="Welcome to forum"></Welcome>
   </main>
 </template>
