@@ -8,7 +8,7 @@ const threads = ref(appData.threads) || []
 <template>
   <div class="px-2">
     <div class="threads-section rounded-br-xl mt-1 pa-1">
-      <h3 class="white mb-0">Threads</h3>
+      <h3 class="text-white mb-0">Threads</h3>
     </div>
     <ThreadsListing :threads="threads"></ThreadsListing>
   </div>

@@ -20,7 +20,6 @@ interface Thread {
 const { thread } = defineProps<{
   thread: Thread
 }>()
-const posts = ref(appData.posts)
 const users = ref(appData.users)
 
 function getUserById(userId: string | undefined) {
@@ -29,16 +28,16 @@ function getUserById(userId: string | undefined) {
 </script>
 
 <template>
-  <v-row class="thread mt-3 pa-1">
+  <v-row class="thread mt-4">
     <v-col>
       <RouterLink :to="{ name: 'threadShow', params: { id: thread.id } }">{{
         thread.title
       }}</RouterLink>
-      <h6 class="green">Last post at {{ thread.lastPostAt }}</h6>
+      <h6 class="text-grey">Last post at {{ thread.lastPostAt }}</h6>
     </v-col>
     <v-spacer></v-spacer>
     <v-col>
-      <span class="green">{{ thread.posts.length }} posts</span>
+      <span class="text-grey">{{ thread.posts.length }} posts</span>
     </v-col>
     <v-col>
       <v-avatar size="30px" :image="getUserById(thread.userId)?.avatar" class="mr-2"></v-avatar>
@@ -63,22 +62,8 @@ h3 {
   text-align: center;
 }
 
-.line-clamp {
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
 .thread {
   border: 1px solid grey;
   border-radius: 5px;
-}
-
-@media (min-width: 1024px) {
-  .greetings h1,
-  .greetings h3 {
-    text-align: left;
-  }
 }
 </style>

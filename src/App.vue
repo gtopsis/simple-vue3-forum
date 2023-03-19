@@ -4,19 +4,17 @@ import './assets/style.css'
 </script>
 
 <template>
-  <v-container class="pa-0" style="width: 100%">
-    <header>
-      <div>
-        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
-      </div>
-      <RouterLink :to="{ name: 'home' }">
-        <span class="page-title">Forum</span>
-      </RouterLink>
-    </header>
-    <main class="pa-0">
-      <RouterView />
-    </main>
-  </v-container>
+  <header>
+    <div>
+      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
+    </div>
+    <RouterLink :to="{ name: 'home' }">
+      <span class="page-title">Forum</span>
+    </RouterLink>
+  </header>
+  <main class="pa-0">
+    <RouterView />
+  </main>
 </template>
 
 <style scoped>
