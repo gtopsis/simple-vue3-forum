@@ -1,10 +1,13 @@
 <script setup lang="ts">
-import Threads from '../components/Threads.vue'
+import ThreadsListing from '../components/ThreadsListing.vue'
 </script>
 
 <template>
   <main>
-    <Threads></Threads>
+    <div class="greetings">
+      <h1 class="green">Threads</h1>
+    </div>
+    <ThreadsListing></ThreadsListing>
   </main>
 </template>
 

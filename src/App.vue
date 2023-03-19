@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HomeView from '@/views/HomeView.vue'
 import './assets/style.css'
 </script>
 
@@ -9,10 +8,13 @@ import './assets/style.css'
     <div>
       <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
     </div>
-    <h1 class="page-title">Forum</h1>
+    <RouterLink :to="{ name: 'home' }">
+      <span class="page-title">Forum</span>
+    </RouterLink>
   </header>
+
   <div class="container">
-    <HomeView></HomeView>
+    <RouterView />
   </div>
 </template>
 
@@ -23,6 +25,7 @@ header {
   background-color: #3c3741;
   padding: 10px;
   width: 100%;
+  height: 50px;
 }
 
 .logo {
@@ -58,5 +61,9 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
+}
+
+.container {
+  background-color: #ecf0f1;
 }
 </style>
