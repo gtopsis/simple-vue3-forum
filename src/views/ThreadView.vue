@@ -25,18 +25,18 @@ function getUserById(userId: string | undefined) {
 
 <template>
   <main>
-    <div class="mb-2">
-      <h2 class="thread-title center green mb-1">{{ thread?.title }}</h2>
-      <span class="subtitle green">{{ thread?.posts.length }} posts</span>
+    <div class="ma-2 pa-2 rounded bg-purple">
+      <h3 class="thread-title center green mb-1">{{ thread?.title }}</h3>
+      <small class="green">{{ thread?.posts.length }} posts</small>
     </div>
 
     <v-card
       v-for="postId in thread?.posts"
       :key="postId"
-      class="mx-auto mb-2"
+      class="post mx-auto mb-2"
       color="#26c6da"
       theme="dark"
-      max-width="400"
+      max-width="800"
       prepend-icon="mdi-twitter"
     >
       <template v-slot:prepend>
@@ -80,7 +80,10 @@ function getUserById(userId: string | undefined) {
 </template>
 
 <style scoped>
-.main {
-  background-color: black;
+main {
+  width: 100%;
+}
+.post {
+  width: 100%;
 }
 </style>
