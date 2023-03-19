@@ -4,12 +4,12 @@ import Threads from '../components/Threads.vue'
 
 <template>
   <main>
-    <Threads msg="Threads"></Threads>
+    <Threads></Threads>
   </main>
 </template>
 
 <style scoped>
-.main{
+.main {
   background-color: black;
 }
 </style>

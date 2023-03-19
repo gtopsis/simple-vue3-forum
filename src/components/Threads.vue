@@ -2,10 +2,6 @@
 import appData from '@/data.json'
 import { ref } from 'vue'
 
-defineProps<{
-  msg: string
-}>()
-
 const categories = ref(appData.categories)
 const users = ref(appData.users)
 const posts = ref(appData.posts)
@@ -22,11 +18,10 @@ function getUserById(userId: string | undefined) {
 
 <template>
   <div class="greetings">
-    <h1 class="green">{{ msg }}</h1>
+    <h1 class="green">Threads</h1>
   </div>
 
   <div>
-    <h2>Threads</h2>
     <div class="container">
       <div class="threads">
         <div class="thread mt-3" v-for="thread in threads" :key="thread.id">
