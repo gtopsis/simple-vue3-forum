@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HomeView from "@/views/HomeView.vue";
+import HomeView from '@/views/HomeView.vue'
+import './assets/style.css'
 </script>
 
 <template>
@@ -13,14 +14,13 @@ import HomeView from "@/views/HomeView.vue";
   <div class="container">
     <HomeView></HomeView>
   </div>
-
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
   max-height: 60px;
-  background-color: #3C3741;
+  background-color: #3c3741;
   padding: 10px;
   width: 100%;
 }
@@ -31,8 +31,8 @@ header {
   margin: 0 1rem;
 }
 
-.page-title{
-margin: 0;
+.page-title {
+  margin: 0;
 }
 
 nav {
@@ -59,6 +59,4 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
-
-
 </style>
