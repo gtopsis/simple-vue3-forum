@@ -23,10 +23,6 @@ const { thread } = defineProps<{
 const posts = ref(appData.posts)
 const users = ref(appData.users)
 
-function getPostById(postId: string | undefined) {
-  return posts.value.find((p) => p.id === postId)
-}
-
 function getUserById(userId: string | undefined) {
   return users.value.find((u) => u.id === userId)
 }

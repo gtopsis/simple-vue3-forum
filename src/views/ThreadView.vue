@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router'
-import Threads from '../components/ThreadsListing.vue'
 import appData from '@/data.json'
 import { ref } from 'vue'
 

@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { ref } from 'vue'
-import appData from '@/data.json'
 import ThreadItem from '@/components/ThreadItem.vue'
 
 interface Thread {
@@ -20,16 +18,6 @@ interface Thread {
 const { threads } = defineProps<{
   threads: Thread[]
 }>()
-const posts = ref(appData.posts)
-const users = ref(appData.users)
-
-function getPostById(postId: string | undefined) {
-  return posts.value.find((p) => p.id === postId)
-}
-
-function getUserById(userId: string | undefined) {
-  return users.value.find((u) => u.id === userId)
-}
 </script>
 
 <template>
