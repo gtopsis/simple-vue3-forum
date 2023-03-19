@@ -1,9 +1,15 @@
 <script setup lang="ts">
-import Welcome from '../components/Welcome.vue'
+import Threads from '../components/Threads.vue'
 </script>
 
 <template>
   <main>
-    <Welcome msg="Welcome to forum"></Welcome>
+    <Threads msg="Threads"></Threads>
   </main>
 </template>
+
+<style scoped>
+.main{
+  background-color: black;
+}
+</style>
