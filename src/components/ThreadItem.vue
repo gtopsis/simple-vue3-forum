@@ -1,7 +1,7 @@
 <script setup lang="ts">
+import type { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 import appData from '@/data.json'
-import ThreadItem from '@/components/ThreadItem.vue'
 
 interface Thread {
   contributors: string[]
@@ -17,8 +17,8 @@ interface Thread {
   id: string
 }
 
-const { threads } = defineProps<{
-  threads: Thread[]
+const { thread } = defineProps<{
+  thread: Thread
 }>()
 const posts = ref(appData.posts)
 const users = ref(appData.users)
@@ -33,9 +33,22 @@ function getUserById(userId: string | undefined) {
 </script>
 
 <template>
-  <v-container fluid class="threads">
-    <ThreadItem v-for="thread in threads" :key="thread.id" :thread="thread"></ThreadItem>
-  </v-container>
+  <v-row class="thread rounded mt-3 pa-1">
+    <v-col>
+      <RouterLink :to="{ name: 'threadShow', params: { id: thread.id } }">{{
+        thread.title
+      }}</RouterLink>
+      <h6 class="green">Last post at {{ thread.lastPostAt }}</h6>
+    </v-col>
+    <v-spacer></v-spacer>
+    <v-col>
+      <span class="green">{{ thread.posts.length }} posts</span>
+    </v-col>
+    <v-col>
+      <v-avatar size="30px" :image="getUserById(thread.userId)?.avatar" class="mr-2"></v-avatar>
+      <small class="green">{{ getUserById(thread.userId)?.name }}</small>
+    </v-col>
+  </v-row>
 </template>
 
 <style scoped>
