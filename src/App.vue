@@ -4,18 +4,19 @@ import './assets/style.css'
 </script>
 
 <template>
-  <header>
-    <div>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
-    </div>
-    <RouterLink :to="{ name: 'home' }">
-      <span class="page-title">Forum</span>
-    </RouterLink>
-  </header>
-
-  <div class="container">
-    <RouterView />
-  </div>
+  <v-container class="pa-0" style="width: 100%">
+    <header>
+      <div>
+        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
+      </div>
+      <RouterLink :to="{ name: 'home' }">
+        <span class="page-title">Forum</span>
+      </RouterLink>
+    </header>
+    <main class="pa-0">
+      <RouterView />
+    </main>
+  </v-container>
 </template>
 
 <style scoped>
@@ -26,6 +27,10 @@ header {
   padding: 10px;
   width: 100%;
   height: 50px;
+}
+
+main {
+  width: 100%;
 }
 
 .logo {
@@ -61,9 +66,5 @@ nav a {
 
 nav a:first-of-type {
   border: 0;
-}
-
-.container {
-  background-color: #ecf0f1;
 }
 </style>

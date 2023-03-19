@@ -22,9 +22,9 @@ function getUserById(userId: string | undefined) {
 </script>
 
 <template>
-  <main>
-    <div class="ma-2 pa-2 rounded bg-purple">
-      <h3 class="thread-title center green mb-1">{{ thread?.title }}</h3>
+  <v-container>
+    <div class="mb-2 pa-2 rounded bg-purple">
+      <h3 class="thread-title center green mb-1">Thread: {{ thread?.title }}</h3>
       <small class="green">{{ thread?.posts.length }} posts</small>
     </div>
 
@@ -74,7 +74,7 @@ function getUserById(userId: string | undefined) {
         </v-list-item>
       </v-card-actions>
     </v-card>
-  </main>
+  </v-container>
 </template>
 
 <style scoped>

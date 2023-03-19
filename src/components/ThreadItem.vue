@@ -29,7 +29,7 @@ function getUserById(userId: string | undefined) {
 </script>
 
 <template>
-  <v-row class="thread rounded mt-3 pa-1">
+  <v-row class="thread mt-3 pa-1">
     <v-col>
       <RouterLink :to="{ name: 'threadShow', params: { id: thread.id } }">{{
         thread.title
@@ -71,7 +71,7 @@ h3 {
 }
 
 .thread {
-  border: 1px solid white;
+  border: 1px solid grey;
   border-radius: 5px;
 }
 
