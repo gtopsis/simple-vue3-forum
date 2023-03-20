@@ -5,31 +5,21 @@ import './assets/style.css'
 
 <template>
   <v-app>
-    <v-toolbar app dark height="90px" color="#3c3741">
+    <v-toolbar app dark color="#ECF0F1">
       <v-toolbar-title>
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
-        <RouterLink :to="{ name: 'home' }">
-          <span class="page-title">Forum</span>
+        <RouterLink :to="{ name: 'home' }" class="ml-2">
+          <span class="page-title text-deep-purple-darken-1">Forum</span>
         </RouterLink>
       </v-toolbar-title>
     </v-toolbar>
-    <v-content>
+    <v-content class="px-2">
       <RouterView />
     </v-content>
   </v-app>
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  background-color: #3c3741;
-  width: 100%;
-}
-
-main {
-  width: 100%;
-}
-
 .logo {
   display: block;
   width: 35px;
