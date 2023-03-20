@@ -4,27 +4,26 @@ import './assets/style.css'
 </script>
 
 <template>
-  <header>
-    <div>
-      <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
-    </div>
-    <RouterLink :to="{ name: 'home' }">
-      <span class="page-title">Forum</span>
-    </RouterLink>
-  </header>
-  <main class="pa-0">
-    <RouterView />
-  </main>
+  <v-app>
+    <v-toolbar app dark height="90px" color="#3c3741">
+      <v-toolbar-title>
+        <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
+        <RouterLink :to="{ name: 'home' }">
+          <span class="page-title">Forum</span>
+        </RouterLink>
+      </v-toolbar-title>
+    </v-toolbar>
+    <v-content>
+      <RouterView />
+    </v-content>
+  </v-app>
 </template>
 
 <style scoped>
 header {
   line-height: 1.5;
-  max-height: 60px;
   background-color: #3c3741;
-  padding: 10px;
   width: 100%;
-  height: 50px;
 }
 
 main {
@@ -33,8 +32,7 @@ main {
 
 .logo {
   display: block;
-  width: 40px;
-  margin: 0 1rem;
+  width: 35px;
 }
 
 .page-title {
