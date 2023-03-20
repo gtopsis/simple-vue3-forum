@@ -7,16 +7,16 @@ const threads = ref(appData.threads) || []
 
 <template>
   <div class="px-2">
-    <v-container class="threads-section mt-3 pa-1">
-      <v-layout row>
-        <v-flex>
+    <v-container class="threads-section mt-3 pa-1" fluid>
+      <v-row no-gutters>
+        <v-col cols="auto">
           <h3 class="threads-heading mb-0">Threads</h3>
-        </v-flex>
+        </v-col>
         <v-spacer></v-spacer>
-        <v-flex>
-          <span class="threads-counter">{{ threads.length }} threads</span>
-        </v-flex>
-      </v-layout>
+        <v-col cols="auto">
+          <span class="threads-counter text-right">{{ threads.length }} threads</span>
+        </v-col>
+      </v-row>
     </v-container>
 
     <ThreadsListing :threads="threads"></ThreadsListing>

@@ -29,21 +29,23 @@ function getUserById(userId: string | undefined) {
 
 <template>
   <v-row class="thread mt-4">
-    <v-col>
-      <RouterLink :to="{ name: 'threadShow', params: { id: thread.id } }">{{
-        thread.title
-      }}</RouterLink>
+    <v-col cols="5">
+      <RouterLink
+        :to="{ name: 'threadShow', params: { id: thread.id } }"
+        class="text-deep-purple-darken-1"
+        >{{ thread.title }}</RouterLink
+      >
 
       <p class="secondary text-grey">
         <small>{{ thread.slug }}</small>
       </p>
     </v-col>
     <v-spacer></v-spacer>
-    <v-col>
+    <v-col cols="2">
       <span class="text-grey">{{ thread.posts.length }} posts</span>
       <h6 class="text-grey">Last post at {{ thread.lastPostAt }}</h6>
     </v-col>
-    <v-col>
+    <v-col cols="3" align-self="center">
       <v-avatar size="30px" :image="getUserById(thread.userId)?.avatar" class="mr-2"></v-avatar>
       <small class="text-grey">{{ getUserById(thread.userId)?.name }}</small>
     </v-col>
