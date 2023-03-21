@@ -3,23 +3,24 @@ import ThreadsListing from '../components/ThreadsListing.vue'
 import appData from '@/data.json'
 import { ref } from 'vue'
 const threads = ref(appData.threads) || []
+const breadcumbItems = ['Threads']
 </script>
 
 <template>
   <div class="px-2">
-    <v-container class="threads-section mt-3 pa-1" fluid>
+    <v-container class="threads-section mt-3 pa-1">
       <v-row no-gutters>
         <v-col cols="auto">
-          <h3 class="threads-heading mb-0">Threads</h3>
+          <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
         </v-col>
         <v-spacer></v-spacer>
         <v-col cols="auto">
           <span class="threads-counter text-right">{{ threads.length }} threads</span>
         </v-col>
       </v-row>
-    </v-container>
 
-    <ThreadsListing :threads="threads"></ThreadsListing>
+      <ThreadsListing :threads="threads"></ThreadsListing>
+    </v-container>
   </div>
 </template>
 
