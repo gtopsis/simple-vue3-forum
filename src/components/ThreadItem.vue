@@ -2,22 +2,9 @@
 import type { RouterLink } from 'vue-router'
 import { ref } from 'vue'
 import appData from '@/data.json'
+import type { Thread } from '@/interfaces'
 
-interface Thread {
-  contributors: string[]
-  firstPostId: string
-  forumId: string
-  lastPostAt: number
-  lastPostId: string
-  posts: string[]
-  publishedAt: number
-  slug: string
-  title: string
-  userId: string
-  id: string
-}
-
-const { thread } = defineProps<{
+const props = defineProps<{
   thread: Thread
 }>()
 const users = ref(appData.users)
@@ -31,23 +18,27 @@ function getUserById(userId: string | undefined) {
   <v-row class="thread mt-4">
     <v-col cols="5">
       <RouterLink
-        :to="{ name: 'threadShow', params: { id: thread.id } }"
+        :to="{ name: 'threadShow', params: { id: props.thread.id } }"
         class="text-deep-purple-darken-1"
-        >{{ thread.title }}</RouterLink
+        >{{ props.thread.title }}</RouterLink
       >
 
       <p class="secondary text-grey">
-        <small>{{ thread.slug }}</small>
+        <small>{{ props.thread.slug }}</small>
       </p>
     </v-col>
     <v-spacer></v-spacer>
     <v-col cols="2">
-      <span class="text-grey">{{ thread.posts.length }} posts</span>
-      <h6 class="text-grey">Last post at {{ thread.lastPostAt }}</h6>
+      <span class="text-grey">{{ props.thread.posts.length }} posts</span>
+      <h6 class="text-grey">Last post at {{ props.thread.lastPostAt }}</h6>
     </v-col>
     <v-col cols="3" align-self="center">
-      <v-avatar size="30px" :image="getUserById(thread.userId)?.avatar" class="mr-2"></v-avatar>
-      <small class="text-grey">{{ getUserById(thread.userId)?.name }}</small>
+      <v-avatar
+        size="30px"
+        :image="getUserById(props.thread.userId)?.avatar"
+        class="mr-2"
+      ></v-avatar>
+      <small class="text-grey">{{ getUserById(props.thread.userId)?.name }}</small>
     </v-col>
   </v-row>
 </template>

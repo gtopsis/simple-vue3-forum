@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import ThreadItem from '@/components/ThreadItem.vue'
-
-interface Thread {
-  contributors: string[]
-  firstPostId: string
-  forumId: string
-  lastPostAt: number
-  lastPostId: string
-  posts: string[]
-  publishedAt: number
-  slug: string
-  title: string
-  userId: string
-  id: string
-}
+import type { Thread } from '@/interfaces'
 
 const props = defineProps<{
   threads: Thread[]

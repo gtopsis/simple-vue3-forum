@@ -1,19 +1,6 @@
 <script setup lang="ts">
 import PostItem from '@/components/PostItem.vue'
-
-interface Post {
-  edited: {
-    at: number
-    by: string
-    moderated: boolean
-  }
-  publishedAt: number
-  text: string
-  threadId: string
-  userId: string
-  id: string
-  reactions?: undefined
-}
+import type { Post } from '@/interfaces'
 
 let props = defineProps<{
   posts: Post[]

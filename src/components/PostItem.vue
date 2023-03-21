@@ -1,20 +1,8 @@
 <script setup lang="ts">
 import appData from '@/data.json'
 import { ref } from 'vue'
+import type { Post } from '@/interfaces'
 
-interface Post {
-  edited: {
-    at: number
-    by: string
-    moderated: boolean
-  }
-  publishedAt: number
-  text: string
-  threadId: string
-  userId: string
-  id: string
-  reactions?: undefined
-}
 const { post } = defineProps<{ post: Post }>()
 
 const users = ref(appData.users)
