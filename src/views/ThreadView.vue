@@ -36,7 +36,7 @@ const createNewPost = () => {
       by: 'string',
       moderated: false
     },
-    publishedAt: 1,
+    publishedAt: Math.floor(Date.now() / 1000),
     text: newPostText.value,
     threadId: thread?.id!,
     userId: thread?.userId!,
@@ -55,7 +55,7 @@ const createNewPost = () => {
         <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="auto">
+      <v-col cols="auto" align-self="center">
         <span class="posts-counter text-right">{{ thread?.posts.length }} posts</span>
       </v-col>
     </v-row>
@@ -101,9 +101,6 @@ const createNewPost = () => {
 </template>
 
 <style scoped>
-.posts-section {
-}
-
 .posts-section-heading {
   border-bottom: 1px solid var(--vt-c-divider-light-1);
 }

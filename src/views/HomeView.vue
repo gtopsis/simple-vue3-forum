@@ -9,12 +9,12 @@ const breadcumbItems = ['Threads']
 <template>
   <div class="px-2">
     <v-container class="threads-section mt-3 pa-1">
-      <v-row no-gutters>
+      <v-row class="threads-section-heading" no-gutters>
         <v-col cols="auto">
           <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
         </v-col>
         <v-spacer></v-spacer>
-        <v-col cols="auto">
+        <v-col cols="auto" align-self="center">
           <span class="threads-counter text-right">{{ threads.length }} threads</span>
         </v-col>
       </v-row>
@@ -25,7 +25,7 @@ const breadcumbItems = ['Threads']
 </template>
 
 <style scoped>
-.threads-section {
+.threads-section-heading {
   border-bottom: 1px solid var(--vt-c-divider-light-1);
 }
 
