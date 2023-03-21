@@ -3,6 +3,7 @@ import appData from '@/data.json'
 import { ref } from 'vue'
 import PostsListing from '@/components/PostsListing.vue'
 import PostEditorModal from '@/components/PostEditorModal.vue'
+import type { Post } from '@/interfaces'
 
 const props = defineProps<{
   id: string
@@ -26,10 +27,8 @@ const getPostsByThreadId = (threadId: string | undefined) => {
   return posts.value.filter((p) => p.threadId === threadId)
 }
 
-const createNewPost = (post) => {
-  post.threadId = thread?.id
-  post.userId = 'random user id'
-  posts.value.push(post)
+const createNewPost = (post: Partial<Post>) => {
+  posts.value.push({ ...post, threadId: thread?.id, userId: 'random user id' })
   dialog.value = false
 }
 

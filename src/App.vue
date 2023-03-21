@@ -5,14 +5,14 @@ import './assets/style.css'
 
 <template>
   <v-app>
-    <v-toolbar app dark color="#ECF0F1">
-      <v-toolbar-title>
+    <v-app-bar app dark color="#ECF0F1">
+      <v-app-title class="px-2">
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
         <RouterLink :to="{ name: 'home' }" class="ml-2">
           <span class="page-title text-deep-purple-darken-1">Forum</span>
         </RouterLink>
-      </v-toolbar-title>
-    </v-toolbar>
+      </v-app-title>
+    </v-app-bar>
     <v-content class="px-2">
       <RouterView />
     </v-content>
