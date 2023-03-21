@@ -51,15 +51,17 @@ function getUserById(userId: string | undefined) {
           getUserById(post?.userId)?.username
         }}</v-list-item-subtitle>
 
-        <!-- <template v-slot:append>
-                  <div class="justify-self-end">
-                    <v-icon class="me-1" icon="mdi-heart"></v-icon>
-                    <span class="subheading me-2">256</span>
-                    <span class="me-1">·</span>
-                    <v-icon class="me-1" icon="mdi-share-variant"></v-icon>
-                    <span class="subheading">45</span>
-                  </div>
-                </template> -->
+        <template v-slot:append>
+          <div class="justify-self-end">
+            <!-- <v-icon class="me-1" icon="mdi-heart"></v-icon>
+            <span class="subheading me-2">256</span>
+            <span class="me-1">·</span>
+            <v-icon class="me-1" icon="mdi-share-variant"></v-icon>
+            <span class="subheading">45</span> -->
+
+            <v-chip color="blue" v-if="getUserById(post?.userId)?.isModerator">Moderator</v-chip>
+          </div>
+        </template>
       </v-list-item>
     </v-card-actions>
   </v-card>
