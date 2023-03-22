@@ -7,18 +7,16 @@ const breadcumbItems = ['Home']
 </script>
 
 <template>
-  <div class="px-2">
-    <v-container class="threads-section mt-3 pa-1">
-      <v-row class="threads-section-heading" no-gutters>
-        <v-col cols="auto">
-          <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
-        </v-col>
-        <v-spacer></v-spacer>
-      </v-row>
+  <v-container class="threads-section mt-3 px-2 py-1">
+    <v-row class="threads-section-heading" no-gutters>
+      <v-col cols="auto">
+        <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
+      </v-col>
+      <v-spacer></v-spacer>
+    </v-row>
 
-      <CategoriesListing :categories="categories"></CategoriesListing>
-    </v-container>
-  </div>
+    <CategoriesListing :categories="categories"></CategoriesListing>
+  </v-container>
 </template>
 
 <style scoped>

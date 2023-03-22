@@ -10,5 +10,9 @@ export const usePostsStore = defineStore('Posts', () => {
     posts.value.push(post)
   }
 
-  return { posts, addPost }
+  const getPostsByUserId = (userId: string) => {
+    return posts.value.filter((p) => p.userId === userId)
+  }
+
+  return { posts, addPost, getPostsByUserId }
 })

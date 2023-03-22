@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import ForumView from '../views/ForumView.vue'
+import UserView from '@/views/UserView.vue'
 import ThreadView from '@/views/ThreadView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import appData from '@/data.json'
@@ -12,6 +13,11 @@ const router = createRouter({
       path: '/',
       name: 'home',
       component: HomeView
+    },
+    {
+      path: '/user',
+      name: 'userProfile',
+      component: UserView
     },
     {
       path: '/forums/:forumId/threads',

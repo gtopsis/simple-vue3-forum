@@ -26,7 +26,9 @@ const loggedInUser = store.getLoggedInUser()
           <v-col>
             <v-row no-gutters class="ml-2" shrink>
               <v-col cols="12">
-                <span>{{ loggedInUser?.name }}</span>
+                <RouterLink :to="{ name: 'userProfile' }">
+                  <span>{{ loggedInUser?.name }}</span>
+                </RouterLink>
               </v-col>
               <v-col cols="12">
                 <small>{{ loggedInUser?.username }}</small>
