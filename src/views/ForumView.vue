@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import appData from '@/data.json'
-import { ref } from 'vue'
 import ThreadsListing from '@/components/ThreadsListing.vue'
+import { useForumsStore } from '@/stores/forums'
+import { useThreadsStore } from '@/stores/threads'
 
 const props = defineProps<{
   forumId: string
 }>()
 
-const forums = ref(appData.forums)
-const forum = forums.value.find((f) => f.id === props.forumId)
-const threads = appData.threads.filter((t) => {
+const forums = useForumsStore().forums
+const forum = forums.find((f) => f.id === props.forumId)
+const threads = useThreadsStore().threads.filter((t) => {
   return t.forumId === props.forumId
 })
 const breadcumbItems = [
   {
-    title: 'Forums',
+    title: 'Home',
     to: { name: 'home' }
   },
   forum?.name

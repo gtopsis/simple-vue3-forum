@@ -1,9 +1,4 @@
-<script setup lang="ts">
-import ThreadsListing from '../components/ThreadsListing.vue'
-import appData from '@/data.json'
-import { ref } from 'vue'
-const threads = ref(appData.threads) || []
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <main class="full-width px-2">

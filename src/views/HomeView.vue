@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ForumsListing from '../components/ForumsListing.vue'
-import appData from '@/data.json'
-import { ref } from 'vue'
-const forums = ref(appData.forums) || []
-const breadcumbItems = ['Forums']
+import CategoriesListing from '../components/CategoriesListing.vue'
+import { useCategoriesStore } from '@/stores/categories'
+
+const categories = useCategoriesStore().categories
+const breadcumbItems = ['Home']
 </script>
 
 <template>
@@ -16,7 +16,7 @@ const breadcumbItems = ['Forums']
         <v-spacer></v-spacer>
       </v-row>
 
-      <ForumsListing :forums="forums"></ForumsListing>
+      <CategoriesListing :categories="categories"></CategoriesListing>
     </v-container>
   </div>
 </template>

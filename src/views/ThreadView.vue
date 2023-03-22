@@ -1,25 +1,28 @@
 <script setup lang="ts">
-import appData from '@/data.json'
 import { ref } from 'vue'
 import PostsListing from '@/components/PostsListing.vue'
 import PostEditorModal from '@/components/PostEditorModal.vue'
 import type { Post } from '@/interfaces'
+import { useForumsStore } from '@/stores/forums'
+import { useThreadsStore } from '@/stores/threads'
+import { usePostsStore } from '@/stores/posts'
 
 const props = defineProps<{
   forumId: string
   threadId: string
 }>()
 
-const threads = ref(appData.threads)
-const forums = ref(appData.forums)
-const posts = ref(appData.posts)
+const threads = useThreadsStore().threads
+const forums = useForumsStore().forums
+const posts = usePostsStore().posts
+
 let dialog = ref(false)
-const forum = forums.value.find((f) => f.id === props.forumId)
-const thread = threads.value.find((t) => t.id === props.threadId)
+const forum = forums.find((f) => f.id === props.forumId)
+const thread = threads.find((t) => t.id === props.threadId)
 
 const breadcumbItems = [
   {
-    title: 'Forums',
+    title: 'Home',
     to: { name: 'home' }
   },
   {
@@ -31,11 +34,11 @@ const breadcumbItems = [
 ]
 
 const getPostsByThreadId = (threadId: string | undefined) => {
-  return posts.value.filter((p) => p.threadId === threadId)
+  return posts.filter((p) => p.threadId === threadId)
 }
 
 const createNewPost = (post: Partial<Post>) => {
-  posts.value.push({ ...post, threadId: thread?.id, userId: 'random user id' })
+  posts.push({ ...post, threadId: thread?.id, userId: 'random user id' })
   dialog.value = false
 }
 

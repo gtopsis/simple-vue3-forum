@@ -1,17 +1,16 @@
 <script setup lang="ts">
 import type { RouterLink } from 'vue-router'
-import { ref } from 'vue'
-import appData from '@/data.json'
 import type { Thread } from '@/interfaces'
 import BaseDateAgo from './BaseDateAgo.vue'
+import { useUsersStore } from '@/stores/users'
 
 const props = defineProps<{
   thread: Thread
 }>()
-const users = ref(appData.users)
+const users = useUsersStore().users
 
 function getUserById(userId: string | undefined) {
-  return users.value.find((u) => u.id === userId)
+  return users.find((u) => u.id === userId)
 }
 </script>
 

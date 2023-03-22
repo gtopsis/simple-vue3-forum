@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import appData from '@/data.json'
-import { ref } from 'vue'
 import type { Post } from '@/interfaces'
 import BaseDateAgo from './BaseDateAgo.vue'
+import { useUsersStore } from '@/stores/users'
 
 const props = defineProps<{ post: Post }>()
-const users = ref(appData.users)
+const users = useUsersStore().users
 
 function getUserById(userId: string | undefined) {
-  return users.value.find((u) => u.id === userId)
+  return users.find((u) => u.id === userId)
 }
 </script>
 

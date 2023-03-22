@@ -35,3 +35,10 @@ export interface Forum {
   lastPostId?: string
   threads?: string
 }
+
+export interface Category {
+  forums: string[]
+  name: string
+  slug: string
+  id: string
+}
