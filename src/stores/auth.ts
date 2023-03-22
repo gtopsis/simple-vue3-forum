@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 import appData from '@/data.json'
 
 export const useAuthStore = defineStore('Auth', () => {
-  const authUserId = 'ALXhxjwgY9PinwNGHpfai6OWyDu2'
+  const authUserId = '7uVPJS9GHoftN58Z2MXCYDqmNAh2'
 
   const isUserLoggedIn = () => {
     return true
