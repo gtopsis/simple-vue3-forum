@@ -6,18 +6,25 @@ import PostEditorModal from '@/components/PostEditorModal.vue'
 import type { Post } from '@/interfaces'
 
 const props = defineProps<{
-  id: string
+  forumId: string
+  threadId: string
 }>()
 
 const threads = ref(appData.threads)
+const forums = ref(appData.forums)
 const posts = ref(appData.posts)
 let dialog = ref(false)
-const thread = threads.value.find((t) => t.id === props.id)
+const forum = forums.value.find((f) => f.id === props.forumId)
+const thread = threads.value.find((t) => t.id === props.threadId)
 
 const breadcumbItems = [
   {
-    title: 'Threads',
+    title: 'Forums',
     to: { name: 'home' }
+  },
+  {
+    title: `${forum?.name}`,
+    to: { name: 'forumView', params: { forumId: forum?.id } }
   },
 
   thread?.title

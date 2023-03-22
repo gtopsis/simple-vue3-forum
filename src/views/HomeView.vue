@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import ThreadsListing from '../components/ThreadsListing.vue'
+import ForumsListing from '../components/ForumsListing.vue'
 import appData from '@/data.json'
 import { ref } from 'vue'
-const threads = ref(appData.threads) || []
-const breadcumbItems = ['Threads']
+const forums = ref(appData.forums) || []
+const breadcumbItems = ['Forums']
 </script>
 
 <template>
@@ -14,12 +14,9 @@ const breadcumbItems = ['Threads']
           <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
         </v-col>
         <v-spacer></v-spacer>
-        <v-col cols="auto" align-self="center">
-          <span class="threads-counter text-right">{{ threads.length }} threads</span>
-        </v-col>
       </v-row>
 
-      <ThreadsListing :threads="threads"></ThreadsListing>
+      <ForumsListing :forums="forums"></ForumsListing>
     </v-container>
   </div>
 </template>
@@ -27,12 +24,5 @@ const breadcumbItems = ['Threads']
 <style scoped>
 .threads-section-heading {
   border-bottom: 1px solid var(--vt-c-divider-light-1);
-}
-
-.threads-heading {
-  color: #2c3e50;
-}
-.threads-counter {
-  color: #2c3e50;
 }
 </style>

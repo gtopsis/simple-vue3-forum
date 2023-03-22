@@ -6,16 +6,16 @@ import './assets/style.css'
 <template>
   <v-app>
     <v-app-bar app dark color="#ECF0F1">
-      <v-app-title class="px-2">
+      <v-app-bar-title class="px-2">
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
         <RouterLink :to="{ name: 'home' }" class="ml-2">
-          <span class="page-title text-deep-purple-darken-1">Forum</span>
+          <span class="page-title text-deep-purple-darken-1">Forum app</span>
         </RouterLink>
-      </v-app-title>
+      </v-app-bar-title>
     </v-app-bar>
-    <v-content class="px-2">
+    <v-main class="px-2">
       <RouterView />
-    </v-content>
+    </v-main>
   </v-app>
 </template>
 

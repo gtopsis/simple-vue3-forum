@@ -9,6 +9,11 @@ const props = defineProps<{
 
 <template>
   <v-container fluid class="threads">
+    <v-row>
+      <v-col cols="auto" align-self="center">
+        <span class="threads-counter text-right">{{ threads.length }} threads</span>
+      </v-col>
+    </v-row>
     <ThreadItem v-for="thread in props.threads" :key="thread.id" :thread="thread"></ThreadItem>
   </v-container>
 </template>

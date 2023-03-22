@@ -2,9 +2,9 @@
 import appData from '@/data.json'
 import { ref } from 'vue'
 import type { Post } from '@/interfaces'
+import BaseDateAgo from './BaseDateAgo.vue'
 
-const { post } = defineProps<{ post: Post }>()
-
+const props = defineProps<{ post: Post }>()
 const users = ref(appData.users)
 
 function getUserById(userId: string | undefined) {
@@ -22,7 +22,7 @@ function getUserById(userId: string | undefined) {
     max-width="1000"
   >
     <v-card-text class="post-text py-2">
-      <span class="text-black">{{ post.text }}</span>
+      <span class="text-black">{{ props.post.text }}</span>
     </v-card-text>
 
     <v-card-actions>
@@ -31,11 +31,16 @@ function getUserById(userId: string | undefined) {
           <v-avatar color="grey-darken-3" :image="getUserById(post?.userId)?.avatar"></v-avatar>
         </template>
 
-        <v-list-item-title class="text-orange">{{
-          getUserById(post?.userId)?.name
-        }}</v-list-item-title>
+        <v-list-item-title class="text-orange">
+          <span>{{ getUserById(post?.userId)?.name }}</span>
 
-        <v-list-item-subtitle class="text-orange-lighten-1">{{
+          <v-icon
+            v-if="getUserById(post?.userId)?.isModerator"
+            icon="mdi-eye-check-outline"
+          ></v-icon>
+        </v-list-item-title>
+
+        <v-list-item-subtitle class="">{{
           getUserById(post?.userId)?.username
         }}</v-list-item-subtitle>
 
@@ -47,7 +52,7 @@ function getUserById(userId: string | undefined) {
             <v-icon class="me-1" icon="mdi-share-variant"></v-icon>
             <span class="subheading">45</span> -->
 
-            <v-chip color="blue" v-if="getUserById(post?.userId)?.isModerator">Moderator</v-chip>
+            <BaseDateAgo class="ml-2" :timestamp="props.post.publishedAt"></BaseDateAgo>
           </div>
         </template>
       </v-list-item>

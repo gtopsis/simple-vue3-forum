@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
+import ForumView from '../views/ForumView.vue'
 import ThreadView from '@/views/ThreadView.vue'
 import NotFoundView from '@/views/NotFoundView.vue'
 import appData from '@/data.json'
@@ -13,13 +14,19 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/threads/:id',
-      name: 'threadShow',
+      path: '/forums/:forumId/threads',
+      name: 'forumView',
+      props: true,
+      component: ForumView
+    },
+    {
+      path: '/forums/:forumId/threads/:threadId',
+      name: 'threadView',
       props: true,
       component: ThreadView,
       beforeEnter(to, from, next) {
         const threads = appData.threads
-        if (threads.find((t) => t.id === to.params.id)) {
+        if (threads.find((t) => t.id === to.params.threadId)) {
           return next()
         }
         next({

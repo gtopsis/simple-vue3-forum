@@ -25,3 +25,13 @@ export interface Thread {
   userId: string
   id: string
 }
+
+export interface Forum {
+  categoryId: string
+  description: string
+  name: string
+  slug: string
+  id: string
+  lastPostId?: string
+  threads?: string
+}
