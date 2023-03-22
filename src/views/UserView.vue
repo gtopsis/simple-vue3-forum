@@ -12,7 +12,7 @@ const userPosts = postsStore.getPostsByUserId(user?.id)
 <template>
   <v-container class="mt-3 px-2 py-1">
     <v-row>
-      <v-col cols="5">
+      <v-col lg="3" md="4" sm="12">
         <v-row align-center justify-center>
           <v-col cols="auto">
             <v-avatar :image="user?.avatar" size="60"></v-avatar>
@@ -25,7 +25,8 @@ const userPosts = postsStore.getPostsByUserId(user?.id)
           </v-col>
         </v-row>
       </v-col>
-      <v-col cols="7">
+      <v-spacer></v-spacer>
+      <v-col lg="7" md="6" sm="12">
         <h4>User activity</h4>
 
         <PostsListing :posts="userPosts"></PostsListing>
