@@ -2,10 +2,11 @@
 import { ref, computed, toRef } from 'vue'
 import type { Post } from '@/interfaces'
 
-let newPostText = ref('')
-let isNewPostTextEmpty = computed(() => !newPostText.value.trim())
 const props = defineProps<{ dialogEnabled: boolean }>()
 const emits = defineEmits<{ (e: 'save-post', post: Post): void; (e: 'cancel'): void }>()
+
+let newPostText = ref('')
+let isNewPostTextEmpty = computed(() => !newPostText.value.trim())
 
 const dialog = toRef(props, 'dialogEnabled')
 

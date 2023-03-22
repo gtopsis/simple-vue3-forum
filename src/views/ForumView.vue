@@ -7,11 +7,11 @@ const props = defineProps<{
   forumId: string
 }>()
 
-const forums = useForumsStore().forums
-const forum = forums.find((f) => f.id === props.forumId)
-const threads = useThreadsStore().threads.filter((t) => {
-  return t.forumId === props.forumId
-})
+const threadsStore = useThreadsStore()
+const forumsStore = useForumsStore()
+const forum = forumsStore.getForumById(props.forumId)
+const threads = threadsStore.getThreadsByForumId(forum?.id!)
+
 const breadcumbItems = [
   {
     title: 'Home',

@@ -6,10 +6,10 @@ import { useUsersStore } from '@/stores/users'
 const props = defineProps<{
   forum: Forum
 }>()
-const users = useUsersStore().users
+const store = useUsersStore()
 
-function getUserById(userId: string | undefined) {
-  return users.find((u) => u.id === userId)
+function getUserById(userId: string) {
+  return store.getUserById(userId)
 }
 </script>
 

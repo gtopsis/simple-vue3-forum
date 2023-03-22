@@ -6,10 +6,9 @@ import { useForumsStore } from '@/stores/forums'
 const props = defineProps<{
   categories: Category[]
 }>()
-const forums = useForumsStore().forums
 
 const getCategoryForums = (categoryId: string) => {
-  return forums.filter((f) => f.categoryId === categoryId)
+  return useForumsStore().getForumsByCategoryId(categoryId)
 }
 </script>
 

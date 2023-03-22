@@ -1,7 +1,7 @@
 export interface Post {
-  edited: {
-    at: number
-    by: string
+  edited?: {
+    at?: number
+    by?: string
     moderated: boolean
   }
   publishedAt: number
@@ -9,7 +9,7 @@ export interface Post {
   threadId: string
   userId: string
   id: string
-  reactions?: undefined
+  reactions?: Record<string, unknown>
 }
 
 export interface Thread {

@@ -12,13 +12,13 @@ const props = defineProps<{
   threadId: string
 }>()
 
-const threads = useThreadsStore().threads
-const forums = useForumsStore().forums
-const posts = usePostsStore().posts
+const threadsStore = useThreadsStore()
+const forumsStore = useForumsStore()
+const postsStore = usePostsStore()
 
 let dialog = ref(false)
-const forum = forums.find((f) => f.id === props.forumId)
-const thread = threads.find((t) => t.id === props.threadId)
+const forum = forumsStore.getForumById(props.forumId)
+const thread = threadsStore.getThreadById(props.threadId)
 
 const breadcumbItems = [
   {
@@ -34,11 +34,11 @@ const breadcumbItems = [
 ]
 
 const getPostsByThreadId = (threadId: string | undefined) => {
-  return posts.filter((p) => p.threadId === threadId)
+  return postsStore.posts.filter((p) => p.threadId === threadId)
 }
 
 const createNewPost = (post: Partial<Post>) => {
-  posts.push({ ...post, threadId: thread?.id, userId: 'random user id' })
+  postsStore.addPost({ ...post, threadId: thread?.id, userId: 'random user id' })
   dialog.value = false
 }
 
