@@ -22,8 +22,8 @@ const breadcumbItems = [
 </script>
 
 <template>
-  <v-container class="posts-section mt-3 pa-1 mb-4">
-    <v-row class="posts-section-heading" no-gutters>
+  <v-container class="mt-3 pa-1 mb-4">
+    <v-row class="" no-gutters>
       <v-col cols="auto">
         <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
       </v-col>
@@ -37,8 +37,4 @@ const breadcumbItems = [
   </v-container>
 </template>
 
-<style scoped>
-.posts-section-heading {
-  border-bottom: 1px solid var(--vt-c-divider-light-1);
-}
-</style>
+<style scoped></style>

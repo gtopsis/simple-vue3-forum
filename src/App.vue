@@ -19,12 +19,12 @@ const loggedInUser = store.getLoggedInUser()
 
       <v-spacer></v-spacer>
       <template v-slot:append>
-        <v-row no-gutters align-center justify-end>
+        <v-row no-gutters align="center" justify="end">
           <v-col cols="auto">
-            <v-avatar :image="loggedInUser?.avatar"></v-avatar>
+            <v-avatar :image="loggedInUser?.avatar" size="35"></v-avatar>
           </v-col>
           <v-col>
-            <v-row no-gutters class="ml-2" shrink>
+            <v-row no-gutters class="ml-2">
               <v-col cols="12">
                 <RouterLink :to="{ name: 'userProfile' }">
                   <span>{{ loggedInUser?.name }}</span>
