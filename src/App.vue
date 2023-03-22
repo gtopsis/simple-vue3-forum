@@ -1,6 +1,10 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import './assets/style.css'
+import { useAuthStore } from '@/stores/auth'
+
+const store = useAuthStore()
+const loggedInUser = store.getLoggedInUser()
 </script>
 
 <template>
@@ -12,6 +16,25 @@ import './assets/style.css'
           <span class="page-title text-deep-purple-darken-1">Forum app</span>
         </RouterLink>
       </v-app-bar-title>
+
+      <v-spacer></v-spacer>
+      <template v-slot:append>
+        <v-row no-gutters align-center justify-end>
+          <v-col cols="auto">
+            <v-avatar :image="loggedInUser?.avatar"></v-avatar>
+          </v-col>
+          <v-col>
+            <v-row no-gutters class="ml-2" shrink>
+              <v-col cols="12">
+                <span>{{ loggedInUser?.name }}</span>
+              </v-col>
+              <v-col cols="12">
+                <small>{{ loggedInUser?.username }}</small>
+              </v-col>
+            </v-row>
+          </v-col></v-row
+        >
+      </template>
     </v-app-bar>
     <v-main class="px-2">
       <RouterView />
