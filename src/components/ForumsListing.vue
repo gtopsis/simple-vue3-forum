@@ -9,7 +9,7 @@ const forums = props.forums
 </script>
 
 <template>
-  <v-container fluid class="threads">
+  <v-container fluid>
     <v-row>
       <v-col cols="auto" class="pa-0 mb-2">
         <span class="">{{ props.forums.length }} forums</span>
