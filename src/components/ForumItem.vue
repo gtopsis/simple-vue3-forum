@@ -5,6 +5,7 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   forum: Forum
+  order: number
 }>()
 
 const textForNumberOfThreads = computed(() => {
@@ -14,7 +15,7 @@ const textForNumberOfThreads = computed(() => {
 </script>
 
 <template>
-  <v-row class="thread mt-4">
+  <v-row class="forum" :class="order % 2 ? 'bg-grey-light' : 'bg-grey-dark'">
     <v-col cols="5">
       <RouterLink
         :to="{ name: 'forumView', params: { forumId: props.forum.id } }"
@@ -30,21 +31,14 @@ const textForNumberOfThreads = computed(() => {
     <v-col cols="2">
       <span class="text-black">{{ textForNumberOfThreads }}</span>
     </v-col>
-    <!-- <v-col cols="3" align-self="center">
-      <v-avatar
-        size="30px"
-        :image="getUserById(props.forum.userId)?.avatar"
-        class="mr-2"
-      ></v-avatar>
-      <span class="text-black mr-2">By {{ getUserById(props.forum.)?.name }}</span>
-      <BaseDateAgo :timestamp="props.forum.publishedAt"></BaseDateAgo>
-    </v-col> -->
   </v-row>
 </template>
 
 <style scoped>
-.thread {
-  border: 1px solid var(--vt-c-divider-light-1);
-  border-radius: 5px;
+.bg-grey-light {
+  background-color: #d9d8d8;
+}
+.bg-grey-dark {
+  background-color: #b8b8b8;
 }
 </style>

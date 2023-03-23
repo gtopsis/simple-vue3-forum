@@ -5,6 +5,7 @@ import type { Forum } from '@/interfaces'
 const props = defineProps<{
   forums: Forum[]
 }>()
+const forums = props.forums
 </script>
 
 <template>
@@ -15,7 +16,12 @@ const props = defineProps<{
       </v-col>
     </v-row>
 
-    <ForumItem v-for="forum in props.forums" :key="forum.id" :forum="forum"></ForumItem>
+    <ForumItem
+      v-for="(forum, index) in forums"
+      :key="forum.id"
+      :forum="forum"
+      :order="index"
+    ></ForumItem>
   </v-container>
 </template>
 
