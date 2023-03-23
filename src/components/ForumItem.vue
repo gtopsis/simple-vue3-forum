@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import type { RouterLink } from 'vue-router'
 import type { Forum } from '@/interfaces'
-import { useUsersStore } from '@/stores/users'
+import { computed } from 'vue'
 
 const props = defineProps<{
   forum: Forum
 }>()
-const store = useUsersStore()
 
-function getUserById(userId: string) {
-  return store.getUserById(userId)
-}
+const textForNumberOfThreads = computed(() => {
+  const numberOfThreads = props.forum?.threads?.length
+  return numberOfThreads ? `${numberOfThreads} threads` : 'no threads'
+})
 </script>
 
 <template>
@@ -22,24 +22,23 @@ function getUserById(userId: string) {
         >{{ props.forum.name }}</RouterLink
       >
 
-      <p class="secondary text-black">
-        <small>{{ props.forum.slug }}</small>
+      <p>
+        <small>{{ props.forum.description }}</small>
       </p>
     </v-col>
     <v-spacer></v-spacer>
     <v-col cols="2">
-      <span class="text-black">{{ props.forum?.threads?.length || 0 }} threads</span>
-      <!-- <h6 class="text-black">Last post at {{ props.forum. }}</h6> -->
+      <span class="text-black">{{ textForNumberOfThreads }}</span>
     </v-col>
-    <v-col cols="3" align-self="center">
-      <!-- <v-avatar
+    <!-- <v-col cols="3" align-self="center">
+      <v-avatar
         size="30px"
         :image="getUserById(props.forum.userId)?.avatar"
         class="mr-2"
-      ></v-avatar> -->
-      <!-- <span class="text-black mr-2">By {{ getUserById(props.forum.userId)?.name }}</span> -->
-      <!-- <BaseDateAgo :timestamp="props.forum.publishedAt"></BaseDateAgo> -->
-    </v-col>
+      ></v-avatar>
+      <span class="text-black mr-2">By {{ getUserById(props.forum.)?.name }}</span>
+      <BaseDateAgo :timestamp="props.forum.publishedAt"></BaseDateAgo>
+    </v-col> -->
   </v-row>
 </template>
 

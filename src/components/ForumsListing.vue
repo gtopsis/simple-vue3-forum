@@ -10,8 +10,8 @@ const props = defineProps<{
 <template>
   <v-container fluid class="threads">
     <v-row>
-      <v-col cols="auto" align-self="center">
-        <span class="threads-counter text-right">{{ props.forums.length }} forums</span>
+      <v-col cols="auto" class="pa-0 mb-2">
+        <span class="">{{ props.forums.length }} forums</span>
       </v-col>
     </v-row>
 
