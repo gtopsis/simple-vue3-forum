@@ -11,8 +11,11 @@ export const useUsersStore = defineStore('Users', () => {
   }
 
   const saveUser = (userId: string, data: User) => {
-    const user: User = users.value.find((u) => u.id === userId)
+    const user: User | undefined = users.value.find((u) => u.id === userId)
+    if (!user) return false
+
     user.bio = data.bio
+    return true
   }
   return { users, getUserById, saveUser }
 })
