@@ -24,7 +24,7 @@ function getUserById(userId: string) {
       >
 
       <p class="secondary text-black">
-        <small>{{ props.thread.contributors.length }} contributors</small>
+        <small>{{ props.thread?.contributors?.length || 0 }} contributors</small>
       </p>
     </v-col>
     <v-spacer></v-spacer>
