@@ -1,7 +1,29 @@
 <script lang="ts" setup>
 import type { User } from '@/interfaces'
+import { ref, computed } from 'vue'
+import { useUsersStore } from '@/stores/users'
 
 const props = defineProps<{ user: User }>()
+const userStore = useUsersStore()
+
+const isEditProfileMode = ref(false)
+let copiedUserProfile = { ...props.user }
+
+const userBio = computed(() => {
+  return props.user.bio ?? 'No bio specified yet'
+})
+
+const isUserOnline = computed(() => {
+  return props.user.lastVisitAt - Date.now() < 10000
+})
+
+const toggleEditProfileMode = () => {
+  isEditProfileMode.value = !isEditProfileMode.value
+}
+const saveUserProfile = () => {
+  userStore.saveUser(copiedUserProfile.id, copiedUserProfile)
+  isEditProfileMode.value = false
+}
 </script>
 <template>
   <v-card loading variant="tonal">
@@ -16,21 +38,38 @@ const props = defineProps<{ user: User }>()
     <v-card-subtitle>
       <v-row justify="center">
         <v-col cols="auto">
-          <span class="text-center">{{ props.user.name }}</span>
+          <h3 class="text-black">
+            {{ props.user.name }}
+            <small class="pl-1 text-green" v-if="isUserOnline">Online</small>
+          </h3>
         </v-col>
       </v-row>
     </v-card-subtitle>
 
     <v-card-text>
-      <span class="text-center">
-        {{ props.user.bio }}
-      </span>
+      <v-row v-if="!isEditProfileMode">
+        <v-col>
+          <span class="text-center"> {{ userBio }} </span>
+        </v-col>
+        <v-col> </v-col>
+      </v-row>
+
+      <v-row v-else>
+        <v-col cols="12">
+          <v-textarea v-model="copiedUserProfile.bio"></v-textarea>
+        </v-col>
+        <v-col> </v-col>
+      </v-row>
     </v-card-text>
 
     <v-card-actions>
       <v-row justify="center">
-        <v-col cols="auto">
-          <v-btn>Edit profile</v-btn>
+        <v-col cols="12" v-if="!isEditProfileMode">
+          <v-btn @click="toggleEditProfileMode">Edit profile</v-btn>
+        </v-col>
+        <v-col cols="12" v-else>
+          <v-btn @click="toggleEditProfileMode">Cancel</v-btn>
+          <v-btn @click="saveUserProfile">Save profile</v-btn>
         </v-col>
       </v-row>
     </v-card-actions>
