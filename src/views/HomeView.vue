@@ -9,7 +9,7 @@ const breadcumbItems = ['Home']
 <template>
   <v-container class="mt-3 px-2 py-1">
     <v-row class="threads-section-heading" no-gutters>
-      <v-col cols="auto">
+      <v-col cols="auto" class="pl-0">
         <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
       </v-col>
     </v-row>

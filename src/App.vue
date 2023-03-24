@@ -18,24 +18,25 @@ const loggedInUser = store.getLoggedInUser()
       </v-app-bar-title>
 
       <v-spacer></v-spacer>
+
       <template v-slot:append>
-        <v-row no-gutters align="center" justify="end">
-          <v-col cols="auto">
-            <v-avatar :image="loggedInUser?.avatar" size="35"></v-avatar>
-          </v-col>
+        <v-row class="user-profile-status" no-gutters align="center">
           <v-col>
             <v-row no-gutters class="ml-2">
               <v-col cols="12">
                 <RouterLink :to="{ name: 'userProfile' }">
-                  <span>{{ loggedInUser?.name }}</span>
+                  <small>{{ loggedInUser?.name }}</small>
                 </RouterLink>
               </v-col>
               <v-col cols="12">
                 <small>{{ loggedInUser?.username }}</small>
               </v-col>
             </v-row>
-          </v-col></v-row
-        >
+          </v-col>
+          <v-col cols="auto">
+            <v-avatar :image="loggedInUser?.avatar" size="35"></v-avatar>
+          </v-col>
+        </v-row>
       </template>
     </v-app-bar>
     <v-main class="px-2">
@@ -52,6 +53,10 @@ const loggedInUser = store.getLoggedInUser()
 
 .page-title {
   margin: 0;
+}
+
+.user-profile-status {
+  width: 150px;
 }
 
 nav {
