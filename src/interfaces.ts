@@ -1,28 +1,7 @@
-export interface Post {
-  edited?: {
-    at?: number
-    by?: string
-    moderated: boolean
-  }
-  publishedAt: number
-  text: string
-  threadId: string
-  userId: string
-  id: string
-  reactions?: Record<string, unknown>
-}
-
-export interface Thread {
-  contributors: string[]
-  firstPostId: string
-  forumId: string
-  lastPostAt: number
-  lastPostId: string
-  posts: string[]
-  publishedAt: number
+export interface Category {
+  forums: string[]
+  name: string
   slug: string
-  title: string
-  userId: string
   id: string
 }
 
@@ -36,11 +15,32 @@ export interface Forum {
   threads?: string
 }
 
-export interface Category {
-  forums: string[]
-  name: string
-  slug: string
+export interface Post {
+  edited?: {
+    at: number
+    by: string
+    moderated: boolean
+  }
+  publishedAt: number
+  text: string
+  threadId: string
+  userId: string
   id: string
+  reactions?: Record<string, Record<string, string>>
+}
+
+export interface Thread {
+  firstPostId: string
+  forumId: string
+  lastPostAt: number
+  lastPostId: string
+  posts: string[]
+  publishedAt: number
+  slug: string
+  title: string
+  userId: string
+  id: string
+  contributors?: string[]
 }
 
 export interface User {
@@ -48,11 +48,11 @@ export interface User {
   email: string
   lastVisitAt: number
   name: string
-  isModerator: boolean
   registeredAt: number
   username: string
   usernameLower: string
   id: string
+  isModerator?: boolean
   bio?: string
   twitter?: string
   website?: string
