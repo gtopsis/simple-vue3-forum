@@ -51,23 +51,21 @@ const saveUserProfile = () => {
         <v-col>
           <span class="text-center"> {{ userBio }} </span>
         </v-col>
-        <v-col> </v-col>
       </v-row>
 
       <v-row v-else>
         <v-col cols="12">
-          <v-textarea v-model="copiedUserProfile.bio"></v-textarea>
+          <v-textarea v-model="copiedUserProfile.bio" rows="3" max-rows="6"></v-textarea>
         </v-col>
-        <v-col> </v-col>
       </v-row>
     </v-card-text>
 
     <v-card-actions>
       <v-row justify="center">
-        <v-col cols="12" v-if="!isEditProfileMode">
+        <v-col cols="auto" v-if="!isEditProfileMode">
           <v-btn @click="toggleEditProfileMode">Edit profile</v-btn>
         </v-col>
-        <v-col cols="12" v-else>
+        <v-col cols="auto" v-else>
           <v-btn @click="toggleEditProfileMode">Cancel</v-btn>
           <v-btn @click="saveUserProfile">Save profile</v-btn>
         </v-col>
