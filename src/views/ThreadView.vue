@@ -1,11 +1,12 @@
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, defineAsyncComponent } from 'vue'
 import PostsListing from '@/components/PostsListing.vue'
-import PostEditorModal from '@/components/PostEditorModal.vue'
 import type { Post } from '@/interfaces'
 import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
 import { usePostsStore } from '@/stores/posts'
+
+const PostEditorModal = defineAsyncComponent(() => import('../components/PostEditorModal.vue'))
 
 const props = defineProps<{
   forumId: string
@@ -72,6 +73,7 @@ const openModal = () => {
       :dialogEnabled="dialog"
       @save-post="createNewPost"
       @cancel="dialog = false"
+      v-if="dialog"
     ></PostEditorModal>
   </v-container>
 </template>
