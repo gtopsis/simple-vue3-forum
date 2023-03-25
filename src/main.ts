@@ -14,13 +14,12 @@ import * as directives from 'vuetify/directives'
 
 const vuetify = createVuetify({
   components,
-  directives,
+  directives
 })
 
 const app = createApp(App)
 
-app.use(createPinia())
 app.use(router)
 app.use(vuetify)
 
-app.mount('#app')
+app.use(createPinia()).mount('#app')
