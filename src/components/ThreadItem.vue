@@ -3,11 +3,19 @@ import type { RouterLink } from 'vue-router'
 import type { Thread } from '@/interfaces'
 import BaseDateAgo from './BaseDateAgo.vue'
 import { useUsersStore } from '@/stores/users'
+import { computed } from 'vue'
 
 const props = defineProps<{
   thread: Thread
 }>()
 const store = useUsersStore()
+
+const contributorsText = computed(() => {
+  const numberOfContributors = props.thread?.contributors?.length || 0
+  return numberOfContributors !== 1
+    ? `${numberOfContributors} contributors`
+    : `${numberOfContributors} contributor`
+})
 
 function getUserById(userId: string) {
   return store.getUserById(userId)
@@ -24,7 +32,7 @@ function getUserById(userId: string) {
       >
 
       <p class="secondary text-black">
-        <small>{{ props.thread?.contributors?.length || 0 }} contributors</small>
+        <small>{{ contributorsText }} </small>
       </p>
     </v-col>
     <v-spacer></v-spacer>
