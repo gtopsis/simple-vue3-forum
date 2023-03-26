@@ -17,7 +17,7 @@ const userPosts = postsStore.getPostsByUserId(user?.id)
         <UserCard :user="user"></UserCard>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col lg="7" md="6" sm="12">
+      <v-col lg="8" md="7" sm="12">
         <h4>User activity</h4>
 
         <PostsListing :posts="userPosts"></PostsListing>

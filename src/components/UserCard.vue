@@ -26,7 +26,7 @@ const saveUserProfile = () => {
 }
 </script>
 <template>
-  <v-card loading variant="tonal">
+  <v-card loading variant="tonal" class="pa-3">
     <v-card-title>
       <v-row justify="center">
         <v-col cols="auto">
