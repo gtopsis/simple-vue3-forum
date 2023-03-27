@@ -49,7 +49,13 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
+  routes,
+  scrollBehavior: (to, from, savedBehavior) => {
+    return {
+      top: to.meta.toTop || {}
+      // behavior: to.meta.behavior || {}
+    }
+  }
 })
 
 export default router

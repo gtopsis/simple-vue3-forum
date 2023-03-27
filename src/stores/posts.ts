@@ -8,8 +8,19 @@ import appData from '@/data.json'
 export const usePostsStore = defineStore('Posts', () => {
   const posts: Ref<Post[]> = ref(appData.posts)
 
-  const addPost = (post: Post) => {
-    posts.value.push(post)
+  const addPost = (post: Pick<Post, 'text' | 'threadId' | 'userId'>) => {
+    const completePost = {
+      ...post,
+      edited: {
+        at: 1,
+        by: 'string',
+        moderated: false
+      },
+      publishedAt: Math.floor(Date.now() / 1000),
+      id: 'string',
+      reactions: undefined
+    }
+    posts.value.push(completePost)
   }
 
   const getPostsByUserId = (userId: string) => {

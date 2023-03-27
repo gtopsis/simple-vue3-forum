@@ -2,6 +2,7 @@
 import { ref, defineAsyncComponent } from 'vue'
 import PostsListing from '@/components/PostsListing.vue'
 import type { Post } from '@/interfaces'
+import { useAuthStore } from '@/stores/auth'
 import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
 import { usePostsStore } from '@/stores/posts'
@@ -41,8 +42,8 @@ const getPostsByThreadId = (threadId: string | undefined) => {
   return postsStore.posts.filter((p) => p.threadId === threadId)
 }
 
-const createNewPost = (post: Partial<Post>) => {
-  postsStore.addPost({ ...post, threadId: thread.value?.id, userId: 'random user id' })
+const createNewPost = (post: Pick<Post, 'text'>) => {
+  postsStore.addPost({ ...post, threadId: thread.value?.id, userId: useAuthStore().getAuthUserId })
   dialog.value = false
 }
 

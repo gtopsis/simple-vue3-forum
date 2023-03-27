@@ -4,7 +4,7 @@ import type { Post } from '@/interfaces'
 
 const props = defineProps<{ dialogEnabled: boolean }>()
 const emits = defineEmits<{
-  (e: 'save-post', post: Omit<Post, 'threadId' | 'userId'>): void
+  (e: 'save-post', post: Pick<Post, 'text'>): void
   (e: 'cancel'): void
 }>()
 
@@ -15,16 +15,8 @@ const dialog = toRef(props, 'dialogEnabled')
 
 const save = () => {
   if (isNewPostTextEmpty.value) return
-  const post: Omit<Post, 'threadId' | 'userId'> = {
-    edited: {
-      at: 1,
-      by: 'string',
-      moderated: false
-    },
-    publishedAt: Math.floor(Date.now() / 1000),
-    text: newPostText.value,
-    id: 'string',
-    reactions: undefined
+  const post: Pick<Post, 'text'> = {
+    text: newPostText.value
   }
 
   emits('save-post', post)
