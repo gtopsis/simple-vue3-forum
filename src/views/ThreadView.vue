@@ -5,6 +5,8 @@ import type { Post } from '@/interfaces'
 import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
 import { usePostsStore } from '@/stores/posts'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const PostEditorModal = defineAsyncComponent(() => import('../components/PostEditorModal.vue'))
 
@@ -13,13 +15,14 @@ const props = defineProps<{
   threadId: string
 }>()
 
-const threadsStore = useThreadsStore()
 const forumsStore = useForumsStore()
 const postsStore = usePostsStore()
 
 let dialog = ref(false)
 const forum = forumsStore.getForumById(props.forumId)
-const thread = threadsStore.getThreadById(props.threadId)
+
+const { getThreadById } = storeToRefs(useThreadsStore())
+const thread = computed(() => getThreadById.value(props.threadId))
 
 const breadcumbItems = [
   {
@@ -31,7 +34,7 @@ const breadcumbItems = [
     to: { name: 'forumView', params: { forumId: forum?.id } }
   },
 
-  thread?.title
+  thread.value?.title
 ]
 
 const getPostsByThreadId = (threadId: string | undefined) => {
@@ -39,7 +42,7 @@ const getPostsByThreadId = (threadId: string | undefined) => {
 }
 
 const createNewPost = (post: Partial<Post>) => {
-  postsStore.addPost({ ...post, threadId: thread?.id, userId: 'random user id' })
+  postsStore.addPost({ ...post, threadId: thread.value?.id, userId: 'random user id' })
   dialog.value = false
 }
 

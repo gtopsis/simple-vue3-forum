@@ -2,15 +2,18 @@
 import ThreadsListing from '@/components/ThreadsListing.vue'
 import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
+import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const props = defineProps<{
   forumId: string
 }>()
 
-const threadsStore = useThreadsStore()
 const forumsStore = useForumsStore()
 const forum = forumsStore.getForumById(props.forumId)
-const threads = threadsStore.getThreadsByForumId(forum?.id!)
+
+const { getThreadsByForumId } = storeToRefs(useThreadsStore())
+const threads = computed(() => getThreadsByForumId.value(forum?.id!))
 
 const breadcumbItems = [
   {
