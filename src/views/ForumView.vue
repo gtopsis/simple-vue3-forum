@@ -22,15 +22,12 @@ const breadcumbItems = [
 </script>
 
 <template>
-  <v-container class="mt-3 pa-1 mb-4">
+  <v-container class="mt-3 pa- mb-4">
     <v-row class="" no-gutters>
       <v-col cols="auto">
         <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
       </v-col>
       <v-spacer></v-spacer>
-      <v-col cols="auto" align-self="center">
-        <!-- <span class="posts-counter text-right">{{ forum?.threads.length }} posts</span> -->
-      </v-col>
     </v-row>
 
     <ThreadsListing :threads="threads"></ThreadsListing>

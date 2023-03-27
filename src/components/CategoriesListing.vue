@@ -13,7 +13,7 @@ const getCategoryForums = (categoryId: string) => {
 </script>
 
 <template>
-  <v-container fluid>
+  <v-container class="px-0" fluid>
     <v-row>
       <v-col v-for="category in props.categories" :key="category.id" cols="12">
         <h2>{{ category.name }}</h2>

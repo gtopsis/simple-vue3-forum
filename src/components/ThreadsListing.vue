@@ -8,13 +8,19 @@ const props = defineProps<{
 </script>
 
 <template>
-  <v-container fluid class="threads">
+  <v-container fluid class="px-0">
     <v-row>
-      <v-col cols="auto" align-self="center" class="pl-0">
+      <v-col cols="auto" align-self="center">
         <span class="">{{ threads.length }} threads</span>
       </v-col>
     </v-row>
-    <ThreadItem v-for="thread in props.threads" :key="thread.id" :thread="thread"></ThreadItem>
+
+    <ThreadItem
+      v-for="thread in props.threads"
+      :key="thread.id"
+      class="mx-0"
+      :thread="thread"
+    ></ThreadItem>
   </v-container>
 </template>
 
