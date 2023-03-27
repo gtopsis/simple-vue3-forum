@@ -18,7 +18,7 @@ const contributorsText = computed(() => {
 })
 
 const { getUserById } = storeToRefs(useUsersStore())
-const user = getUserById.value(props.thread.userId)
+const user = computed(() => getUserById.value(props.thread.userId))
 </script>
 
 <template>

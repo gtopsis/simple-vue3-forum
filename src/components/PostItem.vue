@@ -3,11 +3,12 @@ import type { Post } from '@/interfaces'
 import BaseDateAgo from './BaseDateAgo.vue'
 import { useUsersStore } from '@/stores/users'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const props = defineProps<{ post: Post }>()
-const { getUserById } = storeToRefs(useUsersStore())
 
-const user = getUserById.value(props.post?.userId)
+const { getUserById } = storeToRefs(useUsersStore())
+const user = computed(() => getUserById.value(props.post?.userId))
 </script>
 
 <template>

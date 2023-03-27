@@ -4,9 +4,10 @@ import './assets/style.css'
 import { useAuthStore } from '@/stores/auth'
 import { useUsersStore } from '@/stores/users'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const { getUserById } = storeToRefs(useUsersStore())
-const loggedInUser = getUserById.value(useAuthStore().authUserId)
+const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId))
 </script>
 
 <template>
