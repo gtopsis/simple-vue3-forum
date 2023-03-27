@@ -5,14 +5,15 @@ import { useUsersStore } from '@/stores/users'
 import PostsListing from '@/components/PostsListing.vue'
 import UserCard from '@/components/UserCard.vue'
 import { storeToRefs } from 'pinia'
+import { computed } from 'vue'
 
 const postsStore = usePostsStore()
 
 const authUserId = useAuthStore().getAuthUserId
 const { getUserById } = storeToRefs(useUsersStore())
-const user = getUserById.value(authUserId)
+const user = computed(() => getUserById.value(authUserId))
 
-const userPosts = postsStore.getPostsByUserId(user?.id!)
+const userPosts = postsStore.getPostsByUserId(user.value?.id!)
 </script>
 <template>
   <v-container class="mt-3 px-2 py-1">
