@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import appData from '@/data.json'
+import { computed } from 'vue'
 
 export const useAuthStore = defineStore('Auth', () => {
   const authUserId = '7uVPJS9GHoftN58Z2MXCYDqmNAh2'
@@ -8,9 +9,9 @@ export const useAuthStore = defineStore('Auth', () => {
     return true
   }
 
-  const getLoggedInUser = () => {
-    return appData.users.find((u) => u.id === authUserId)
-  }
+  const getAuthUserId = computed(() => {
+    return authUserId
+  })
 
-  return { authUserId, isUserLoggedIn, getLoggedInUser }
+  return { authUserId, isUserLoggedIn, getAuthUserId }
 })

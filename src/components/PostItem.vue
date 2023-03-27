@@ -2,13 +2,12 @@
 import type { Post } from '@/interfaces'
 import BaseDateAgo from './BaseDateAgo.vue'
 import { useUsersStore } from '@/stores/users'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<{ post: Post }>()
-const users = useUsersStore().users
+const { getUserById } = storeToRefs(useUsersStore())
 
-function getUserById(userId: string | undefined) {
-  return users.find((u) => u.id === userId)
-}
+const user = getUserById.value(props.post?.userId)
 </script>
 
 <template>
@@ -20,21 +19,16 @@ function getUserById(userId: string | undefined) {
     <v-card-actions>
       <v-list-item class="w-100 pa-0">
         <template v-slot:prepend>
-          <v-avatar color="grey-darken-3" :image="getUserById(post?.userId)?.avatar"></v-avatar>
+          <v-avatar color="grey-darken-3" :image="user?.avatar"></v-avatar>
         </template>
 
         <v-list-item-title class="text-orange">
-          <span>{{ getUserById(post?.userId)?.name }}</span>
+          <span>{{ user?.name }}</span>
 
-          <v-icon
-            v-if="getUserById(post?.userId)?.isModerator"
-            icon="mdi-eye-check-outline"
-          ></v-icon>
+          <v-icon v-if="user?.isModerator" icon="mdi-eye-check-outline"></v-icon>
         </v-list-item-title>
 
-        <v-list-item-subtitle class="">{{
-          getUserById(post?.userId)?.username
-        }}</v-list-item-subtitle>
+        <v-list-item-subtitle class="">{{ user?.username }}</v-list-item-subtitle>
 
         <template v-slot:append>
           <div class="justify-self-end">

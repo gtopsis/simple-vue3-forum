@@ -2,9 +2,11 @@
 import { RouterLink, RouterView } from 'vue-router'
 import './assets/style.css'
 import { useAuthStore } from '@/stores/auth'
+import { useUsersStore } from '@/stores/users'
+import { storeToRefs } from 'pinia'
 
-const store = useAuthStore()
-const loggedInUser = store.getLoggedInUser()
+const { getUserById } = storeToRefs(useUsersStore())
+const loggedInUser = getUserById.value(useAuthStore().authUserId)
 </script>
 
 <template>
