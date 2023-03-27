@@ -12,7 +12,7 @@ function getUserById(userId: string | undefined) {
 </script>
 
 <template>
-  <v-card class="post mx-auto mb-2" loading color="#437a9d" max-width="1000">
+  <v-card class="post mx-auto mb-2" loading color="#437a9d">
     <v-card-text class="post-text py-2">
       <span class="text-black">{{ props.post.text }}</span>
     </v-card-text>
