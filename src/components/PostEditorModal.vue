@@ -3,7 +3,10 @@ import { ref, computed, toRef } from 'vue'
 import type { Post } from '@/interfaces'
 
 const props = defineProps<{ dialogEnabled: boolean }>()
-const emits = defineEmits<{ (e: 'save-post', post: Post): void; (e: 'cancel'): void }>()
+const emits = defineEmits<{
+  (e: 'save-post', post: Omit<Post, 'threadId' | 'userId'>): void
+  (e: 'cancel'): void
+}>()
 
 let newPostText = ref('')
 let isNewPostTextEmpty = computed(() => !newPostText.value.trim())
@@ -12,7 +15,7 @@ const dialog = toRef(props, 'dialogEnabled')
 
 const save = () => {
   if (isNewPostTextEmpty.value) return
-  const post = {
+  const post: Omit<Post, 'threadId' | 'userId'> = {
     edited: {
       at: 1,
       by: 'string',
