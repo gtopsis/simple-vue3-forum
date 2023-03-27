@@ -12,7 +12,7 @@ export interface Forum {
   slug: string
   id: string
   lastPostId?: string
-  threads?: string
+  threads?: string[]
 }
 
 export interface Post {
@@ -26,7 +26,7 @@ export interface Post {
   threadId: string
   userId: string
   id: string
-  reactions?: Record<string, Record<string, string>>
+  reactions?: Record<string, Record<string, string | undefined> | undefined>
 }
 
 export interface Thread {

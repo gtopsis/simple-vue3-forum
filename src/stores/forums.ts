@@ -1,9 +1,12 @@
 import { ref } from 'vue'
+import type { Ref } from 'vue'
+import type { Forum } from '@/interfaces'
+
 import { defineStore } from 'pinia'
 import appData from '@/data.json'
 
 export const useForumsStore = defineStore('Forums', () => {
-  const forums = ref(appData.forums)
+  const forums: Ref<Forum[]> = ref(appData.forums)
 
   const getForumsByCategoryId = (categoryId: string) => {
     return forums.value.filter((f) => f.categoryId === categoryId)

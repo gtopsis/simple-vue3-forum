@@ -1,9 +1,11 @@
 import { ref } from 'vue'
+import type { Ref } from 'vue'
 import { defineStore } from 'pinia'
 import appData from '@/data.json'
+import type { Thread } from '@/interfaces'
 
 export const useThreadsStore = defineStore('Threads', () => {
-  const threads = ref(appData.threads)
+  const threads: Ref<Thread[]> = ref(appData.threads)
 
   const getThreadById = (threadId: string) => {
     return threads.value.find((u) => u.id === threadId)

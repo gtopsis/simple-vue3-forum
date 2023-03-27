@@ -1,10 +1,12 @@
 import { ref } from 'vue'
-import { defineStore } from 'pinia'
-import appData from '@/data.json'
+import type { Ref } from 'vue'
 import type { Post } from '@/interfaces'
 
+import { defineStore } from 'pinia'
+import appData from '@/data.json'
+
 export const usePostsStore = defineStore('Posts', () => {
-  const posts = ref(appData.posts)
+  const posts: Ref<Post[]> = ref(appData.posts)
 
   const addPost = (post: Post) => {
     posts.value.push(post)
