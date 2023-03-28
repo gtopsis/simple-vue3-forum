@@ -28,7 +28,7 @@ const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId)
             <v-row no-gutters class="ml-2">
               <v-col cols="12">
                 <RouterLink :to="{ name: 'userProfileView' }">
-                  <small>{{ loggedInUser?.name }}</small>
+                  <small class="text-deep-purple-darken-1">{{ loggedInUser?.name }}</small>
                 </RouterLink>
               </v-col>
               <v-col cols="12">

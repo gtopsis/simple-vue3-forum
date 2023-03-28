@@ -12,7 +12,7 @@ const user = computed(() => getUserById.value(props.post?.userId))
 </script>
 
 <template>
-  <v-card class="post mx-auto mb-2" loading color="#437a9d">
+  <v-card class="post mx-auto mb-2" loading color="#74b9ff">
     <v-card-text class="post-text py-2">
       <span class="text-black">{{ props.post.text }}</span>
     </v-card-text>
@@ -20,11 +20,11 @@ const user = computed(() => getUserById.value(props.post?.userId))
     <v-card-actions>
       <v-list-item class="w-100 pa-0">
         <template v-slot:prepend>
-          <v-avatar color="grey-darken-3" :image="user?.avatar"></v-avatar>
+          <v-avatar color="grey-darken-3" :image="user?.avatar" size="30"></v-avatar>
         </template>
 
-        <v-list-item-title class="text-orange">
-          <span>{{ user?.name }}</span>
+        <v-list-item-title class="text-black">
+          <small>{{ user?.name }}</small>
 
           <v-icon v-if="user?.isModerator" icon="mdi-eye-check-outline"></v-icon>
         </v-list-item-title>

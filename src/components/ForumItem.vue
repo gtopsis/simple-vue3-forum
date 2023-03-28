@@ -19,7 +19,7 @@ const textForNumberOfThreads = computed(() => {
     <v-col cols="5">
       <RouterLink
         :to="{ name: 'forumView', params: { forumId: props.forum.id } }"
-        class="text-brown"
+        class="text-deep-purple-darken-1"
         >{{ props.forum.name }}</RouterLink
       >
 
