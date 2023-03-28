@@ -38,7 +38,9 @@ const cancel = () => {
       <v-card-text>
         <v-container>
           <v-row>
-            <v-textarea v-model="newPostText" required></v-textarea>
+            <v-form class="form" autofocus>
+              <v-textarea v-model="newPostText" required></v-textarea>
+            </v-form>
           </v-row>
         </v-container>
         <small>*indicates required field</small>
@@ -54,4 +56,8 @@ const cancel = () => {
   </v-dialog>
 </template>
 
-<style scoped></style>
+<style scoped>
+.form {
+  width: 100%;
+}
+</style>
