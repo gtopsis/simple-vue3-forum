@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import TheBreadcrumb from '@/components/TheBreadcrumb.vue'
 import ThreadsListing from '@/components/ThreadsListing.vue'
 import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
@@ -14,21 +15,13 @@ const forum = forumsStore.getForumById(props.forumId)
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
 const threads = computed(() => getThreadsByForumId.value(forum?.id!))
-
-const breadcumbItems = [
-  {
-    title: 'Home',
-    to: { name: 'home' }
-  },
-  forum?.name
-]
 </script>
 
 <template>
   <v-container class="mt-3 pa- mb-4">
     <v-row class="" no-gutters>
       <v-col cols="auto">
-        <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
+        <TheBreadcrumb></TheBreadcrumb>
       </v-col>
       <v-spacer></v-spacer>
     </v-row>
