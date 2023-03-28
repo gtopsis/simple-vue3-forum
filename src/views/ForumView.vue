@@ -18,7 +18,7 @@ const threads = computed(() => getThreadsByForumId.value(forum?.id!))
 </script>
 
 <template>
-  <v-container class="mt-3 pa- mb-4">
+  <v-container class="mt-3 pa-1 mb-4">
     <v-row class="" no-gutters>
       <v-col cols="auto">
         <TheBreadcrumb></TheBreadcrumb>
