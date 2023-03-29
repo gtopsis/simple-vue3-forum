@@ -11,7 +11,7 @@ const props = defineProps<{
   <v-container fluid class="px-0">
     <v-row>
       <v-col cols="auto" align-self="center">
-        <span class="">{{ threads.length }} threads</span>
+        <span class="text-white">{{ threads.length }} threads</span>
       </v-col>
     </v-row>
 

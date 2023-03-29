@@ -11,7 +11,7 @@ const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId)
 </script>
 
 <template>
-  <v-app>
+  <v-app class="app">
     <v-app-bar app dark color="#ECF0F1">
       <v-app-bar-title class="pr-2">
         <img alt="Vue logo" class="logo" src="@/assets/logo.svg" />
@@ -42,7 +42,7 @@ const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId)
         </v-row>
       </template>
     </v-app-bar>
-    <v-main class="px-2">
+    <v-main class="px-2 main-content">
       <RouterView />
     </v-main>
   </v-app>
@@ -60,6 +60,15 @@ const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId)
 
 .user-profile-status {
   width: 150px;
+}
+
+.main-content {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.app {
+  background-color: #152f3c;
 }
 
 nav {

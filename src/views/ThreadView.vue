@@ -45,7 +45,7 @@ const openModal = () => {
       </v-col>
       <v-spacer></v-spacer>
       <v-col cols="auto" align-self="center">
-        <span class="posts-counter text-right">{{ thread?.posts.length }} posts</span>
+        <span class="posts-counter text-white text-right">{{ thread?.posts.length }} posts</span>
       </v-col>
     </v-row>
 

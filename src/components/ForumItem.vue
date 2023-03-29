@@ -15,7 +15,7 @@ const textForNumberOfThreads = computed(() => {
 </script>
 
 <template>
-  <v-row class="forum" :class="order % 2 ? 'bg-grey-light' : 'bg-grey-dark'">
+  <v-row class="forum" :class="order % 2 ? 'bg-white' : 'bg-grey-dark'">
     <v-col cols="5">
       <RouterLink
         :to="{ name: 'forumView', params: { forumId: props.forum.id } }"
@@ -35,8 +35,8 @@ const textForNumberOfThreads = computed(() => {
 </template>
 
 <style scoped>
-.bg-grey-light {
-  background-color: #d9d8d8;
+.bg-white {
+  background-color: #fff;
 }
 .bg-grey-dark {
   background-color: #b8b8b8;

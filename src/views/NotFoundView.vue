@@ -5,7 +5,7 @@
     <v-row no-gutters align="center" justify="center" class="pa-4">
       <v-col class="page-content">
         <v-col cols="auto">
-          <h2 class="green">Opps! The dog ate the page you're looking for.</h2>
+          <h2 class="text-white">Opps! The dog ate the page you're looking for.</h2>
           <RouterLink :to="{ name: 'home' }">View all categories instead</RouterLink>
         </v-col>
         <v-col cols="auto">

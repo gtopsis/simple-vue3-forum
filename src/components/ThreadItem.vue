@@ -61,5 +61,6 @@ const user = computed(() => getUserById.value(props.thread.userId))
 .forum {
   border: 1px solid var(--vt-c-divider-light-1);
   border-radius: 5px;
+  background-color: #fff;
 }
 </style>

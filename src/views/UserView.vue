@@ -23,7 +23,7 @@ const userPosts = postsStore.getPostsByUserId(user.value?.id!)
       </v-col>
       <v-spacer></v-spacer>
       <v-col lg="8" md="7" sm="12">
-        <h4>User activity</h4>
+        <h4 class="text-white">User activity</h4>
 
         <PostsListing :posts="userPosts"></PostsListing>
       </v-col>

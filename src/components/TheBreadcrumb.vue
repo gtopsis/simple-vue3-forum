@@ -46,4 +46,8 @@ if (currentRouteName.value === 'forumView') {
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.v-breadcrumbs-item {
+  color: white !important;
+}
+</style>
