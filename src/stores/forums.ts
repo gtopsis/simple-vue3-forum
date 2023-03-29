@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
 import type { Forum } from '@/interfaces'
 
@@ -12,9 +12,9 @@ export const useForumsStore = defineStore('Forums', () => {
     return forums.value.filter((f) => f.categoryId === categoryId)
   }
 
-  const getForumById = (forumId: string) => {
-    return forums.value.find((f) => f.id === forumId)
-  }
+  const getForumById = computed(() => {
+    return (forumId: string) => forums.value.find((f) => f.id === forumId)
+  })
 
   return { forums, getForumsByCategoryId, getForumById }
 })

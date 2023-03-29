@@ -16,24 +16,24 @@ const breadcrumbItemToHome = {
 
 if (currentRouteName.value === 'forumView') {
   const forumId = route.params.forumId
-  const forumsStore = useForumsStore()
-  const forum = forumsStore.getForumById(forumId as string)
+  const { getForumById } = storeToRefs(useForumsStore())
+  const forum = computed(() => getForumById.value(forumId))
 
-  breadcrumbItems = [breadcrumbItemToHome, forum?.name!]
+  breadcrumbItems = [breadcrumbItemToHome, forum.value?.name!]
 } else if (currentRouteName.value === 'threadView') {
   const forumId = route.params.forumId
-  const forumsStore = useForumsStore()
-  const forum = forumsStore.getForumById(forumId as string)
+  const { getForumById } = storeToRefs(useForumsStore())
+  const forum = computed(() => getForumById.value(forumId))
 
-  const { getThreadById } = storeToRefs(useThreadsStore())
   const threadId = route.params.threadId
+  const { getThreadById } = storeToRefs(useThreadsStore())
   const thread = computed(() => getThreadById.value(threadId))
 
   breadcrumbItems = [
     breadcrumbItemToHome,
     {
-      title: `${forum?.name}`,
-      to: { name: 'forumView', params: { forumId: forum?.id } }
+      title: `${forum.value?.name}`,
+      to: { name: 'forumView', params: { forumId: forum.value?.id } }
     },
     thread.value?.title!
   ]

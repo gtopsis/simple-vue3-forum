@@ -10,11 +10,11 @@ const props = defineProps<{
   forumId: string
 }>()
 
-const forumsStore = useForumsStore()
-const forum = forumsStore.getForumById(props.forumId)
+const { getForumById } = storeToRefs(useForumsStore())
+const forum = computed(() => getForumById.value(props.forumId))
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
-const threads = computed(() => getThreadsByForumId.value(forum?.id!))
+const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
 </script>
 
 <template>
