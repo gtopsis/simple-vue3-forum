@@ -7,13 +7,12 @@ import UserCard from '@/components/UserCard.vue'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-const postsStore = usePostsStore()
-
 const authUserId = useAuthStore().getAuthUserId
 const { getUserById } = storeToRefs(useUsersStore())
 const user = computed(() => getUserById.value(authUserId))
 
-const userPosts = postsStore.getPostsByUserId(user.value?.id!)
+const { getPostsByUserId } = storeToRefs(usePostsStore())
+const userPosts = computed(() => getPostsByUserId.value(user.value?.id!))
 </script>
 <template>
   <v-container class="mt-3 px-2 py-1">

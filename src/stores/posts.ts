@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import type { Ref } from 'vue'
 import type { Post } from '@/interfaces'
 
@@ -23,9 +23,9 @@ export const usePostsStore = defineStore('Posts', () => {
     posts.value.push(completePost)
   }
 
-  const getPostsByUserId = (userId: string) => {
+  const getPostsByUserId = computed(() => (userId: string) => {
     return posts.value.filter((p) => p.userId === userId)
-  }
+  })
 
   return { posts, addPost, getPostsByUserId }
 })
