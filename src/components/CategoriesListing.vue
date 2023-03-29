@@ -2,13 +2,16 @@
 import ForumsListing from '@/components/ForumsListing.vue'
 import type { Category } from '@/interfaces'
 import { useForumsStore } from '@/stores/forums'
+import { storeToRefs } from 'pinia'
 
 const props = defineProps<{
   categories: Category[]
 }>()
 
 const getCategoryForums = (categoryId: string) => {
-  return useForumsStore().getForumsByCategoryId(categoryId)
+  const { getForumsByCategoryId } = storeToRefs(useForumsStore())
+
+  return getForumsByCategoryId.value(categoryId)
 }
 </script>
 
