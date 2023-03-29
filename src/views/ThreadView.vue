@@ -49,8 +49,11 @@ const openModal = () => {
       </v-col>
     </v-row>
 
-    <v-row class="my-2">
-      <v-col>
+    <v-row class="my-2" justify="space-between">
+      <v-col cols="auto">
+        <h2 class="text-white">{{ thread?.title }}</h2>
+      </v-col>
+      <v-col cols="auto">
         <v-btn color="primary" @click="openModal"> Create new post </v-btn>
       </v-col>
     </v-row>

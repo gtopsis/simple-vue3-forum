@@ -19,11 +19,17 @@ const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
 
 <template>
   <v-container class="mt-3 pa-1 mb-4">
-    <v-row class="" no-gutters>
+    <v-row no-gutters>
       <v-col cols="auto">
         <TheBreadcrumb></TheBreadcrumb>
       </v-col>
-      <v-spacer></v-spacer>
+    </v-row>
+
+    <v-row class="mb-2" justify="space-between">
+      <v-col cols="auto">
+        <h2 class="text-white">{{ forum?.name }}</h2>
+      </v-col>
+      <v-col cols="auto"> </v-col>
     </v-row>
 
     <ThreadsListing :threads="threads"></ThreadsListing>
