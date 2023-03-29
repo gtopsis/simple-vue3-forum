@@ -12,7 +12,7 @@ const user = computed(() => getUserById.value(props.post?.userId))
 </script>
 
 <template>
-  <v-card class="post mx-auto mb-2" loading color="#74b9ff">
+  <v-card class="post mx-auto mb-2" loading>
     <v-card-text class="post-text py-2">
       <span class="text-black">{{ props.post.text }}</span>
     </v-card-text>
@@ -32,15 +32,21 @@ const user = computed(() => getUserById.value(props.post?.userId))
         <v-list-item-subtitle class="">{{ user?.username }}</v-list-item-subtitle>
 
         <template v-slot:append>
-          <div class="justify-self-end">
-            <!-- <v-icon class="me-1" icon="mdi-heart"></v-icon>
-            <span class="subheading me-2">256</span>
-            <span class="me-1">·</span>
-            <v-icon class="me-1" icon="mdi-share-variant"></v-icon>
-            <span class="subheading">45</span> -->
-
-            <BaseDateAgo class="ml-2" :timestamp="props.post.publishedAt"></BaseDateAgo>
-          </div>
+          <v-row>
+            <v-col class="pa-0" cols="12">
+              <small
+                >Created
+                <BaseDateAgo :timestamp="props.post.publishedAt"></BaseDateAgo>
+              </small>
+            </v-col>
+            <v-col class="pa-0" cols="12">
+              <small
+                >Last edited
+                <BaseDateAgo :timestamp="props.post.edited?.at"></BaseDateAgo>
+              </small>
+            </v-col>
+          </v-row>
+          <div class="justify-self-end"></div>
         </template>
       </v-list-item>
     </v-card-actions>
