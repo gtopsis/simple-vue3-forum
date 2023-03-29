@@ -42,7 +42,7 @@ if (currentRouteName.value === 'forumView') {
 
 <template>
   <div>
-    <v-breadcrumbs :items="breadcrumbItems"></v-breadcrumbs>
+    <v-breadcrumbs :items="breadcrumbItems" color="white"></v-breadcrumbs>
   </div>
 </template>
 
