@@ -63,7 +63,7 @@ const loggedInUser = computed(() => getUserById.value(useAuthStore().authUserId)
 }
 
 .main-content {
-  max-width: 1000px;
+  width: 1000px;
   margin: 0 auto;
 }
 
