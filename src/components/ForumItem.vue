@@ -39,6 +39,6 @@ const textForNumberOfThreads = computed(() => {
   background-color: #fff;
 }
 .bg-grey-dark {
-  background-color: #b8b8b8;
+  background-color: #ecebeb;
 }
 </style>
