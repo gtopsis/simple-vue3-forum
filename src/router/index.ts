@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
-import appData from '@/data.json'
+import { storeToRefs } from 'pinia'
+import { useThreadsStore } from '@/stores/threads'
+import { computed } from 'vue'
 
 const routes = [
   {
@@ -25,10 +27,13 @@ const routes = [
     props: true,
     component: () => import('@/views/ThreadView.vue'),
     beforeEnter(to, from, next) {
-      const threads = appData.threads
-      if (threads.find((t) => t.id === to.params.threadId)) {
+      const { getThreadById } = storeToRefs(useThreadsStore())
+      const thread = computed(() => getThreadById.value(to.params.threadId))
+
+      if (thread.value) {
         return next()
       }
+
       next({
         name: 'notFound',
         params: {
@@ -49,13 +54,7 @@ const routes = [
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes,
-  scrollBehavior: (to, from, savedBehavior) => {
-    return {
-      top: to.meta.toTop || {}
-      // behavior: to.meta.behavior || {}
-    }
-  }
+  routes
 })
 
 export default router

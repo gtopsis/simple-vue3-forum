@@ -1,5 +1,4 @@
 import { defineStore } from 'pinia'
-import appData from '@/data.json'
 import { computed } from 'vue'
 
 export const useAuthStore = defineStore('Auth', () => {
