@@ -11,12 +11,12 @@ const props = defineProps<{
   <v-container fluid>
     <v-row>
       <v-col cols="auto" class="pa-0 mb-2">
-        <span class="text-white">{{ props.forums.length }} forums</span>
+        <span class="text-white">{{ forums.length }} forums</span>
       </v-col>
     </v-row>
 
     <ForumItem
-      v-for="(forum, index) in props.forums"
+      v-for="(forum, index) in forums"
       :key="forum.id"
       :forum="forum"
       :order="index"

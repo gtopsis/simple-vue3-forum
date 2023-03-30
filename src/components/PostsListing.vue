@@ -10,7 +10,7 @@ let props = defineProps<{
 <template>
   <v-container fluid>
     <v-row class="posts">
-      <PostItem v-for="post in props.posts" :key="post.id" :post="post"></PostItem>
+      <PostItem v-for="post in posts" :key="post.id" :post="post"></PostItem>
     </v-row>
   </v-container>
 </template>

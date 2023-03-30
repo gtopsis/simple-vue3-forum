@@ -30,7 +30,7 @@ const saveUserProfile = () => {
     <v-card-title>
       <v-row justify="center">
         <v-col cols="auto">
-          <v-avatar :image="props.user.avatar" size="60"></v-avatar>
+          <v-avatar :image="user.avatar" size="60"></v-avatar>
         </v-col>
       </v-row>
     </v-card-title>
@@ -39,7 +39,7 @@ const saveUserProfile = () => {
       <v-row justify="center">
         <v-col cols="auto">
           <h3 class="text-black">
-            {{ props.user.name }}
+            {{ user.name }}
             <small class="pl-1 text-green" v-if="isUserOnline">Online</small>
           </h3>
         </v-col>

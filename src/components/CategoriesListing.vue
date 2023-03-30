@@ -18,7 +18,7 @@ const getCategoryForums = (categoryId: string) => {
 <template>
   <v-container class="px-0" fluid>
     <v-row>
-      <v-col v-for="category in props.categories" :key="category.id" cols="12">
+      <v-col v-for="category in categories" :key="category.id" cols="12">
         <h2 class="text-white">{{ category.name }}</h2>
         <ForumsListing :forums="getCategoryForums(category.id)"></ForumsListing>
       </v-col>

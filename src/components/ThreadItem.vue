@@ -25,9 +25,9 @@ const user = computed(() => getUserById.value(props.thread.userId))
   <v-row class="forum mt-4" align="center">
     <v-col cols="5">
       <RouterLink
-        :to="{ name: 'threadView', params: { threadId: props.thread.id } }"
+        :to="{ name: 'threadView', params: { threadId: thread.id } }"
         class="text-deep-purple-darken-1"
-        >{{ props.thread.title }}</RouterLink
+        >{{ thread.title }}</RouterLink
       >
 
       <p class="secondary text-black">
@@ -36,10 +36,10 @@ const user = computed(() => getUserById.value(props.thread.userId))
     </v-col>
     <v-spacer></v-spacer>
     <v-col cols="2">
-      <span class="text-black">{{ props.thread.posts.length }} posts</span>
+      <span class="text-black">{{ thread.posts.length }} posts</span>
       <h6 class="text-black">
         Last post
-        <BaseDateAgo :timestamp="props.thread.lastPostAt"></BaseDateAgo>
+        <BaseDateAgo :timestamp="thread.lastPostAt"></BaseDateAgo>
       </h6>
     </v-col>
     <v-col cols="auto" class="pr-0">
@@ -53,7 +53,7 @@ const user = computed(() => getUserById.value(props.thread.userId))
         <v-col cols="12">
           <small class="text-grey-darken-2">
             Opened
-            <BaseDateAgo :timestamp="props.thread.publishedAt"></BaseDateAgo>
+            <BaseDateAgo :timestamp="thread.publishedAt"></BaseDateAgo>
           </small>
         </v-col>
       </v-row>
