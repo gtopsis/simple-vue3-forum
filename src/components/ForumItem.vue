@@ -15,7 +15,7 @@ const textForNumberOfThreads = computed(() => {
 </script>
 
 <template>
-  <v-row class="forum" :class="order % 2 ? 'bg-white' : 'bg-grey-dark'">
+  <v-row class="forum" :class="order % 2 ? 'bg-white' : 'bg-grey-dark'" justify="space-between">
     <v-col cols="5">
       <RouterLink
         :to="{ name: 'forumView', params: { forumId: props.forum.id } }"
@@ -27,8 +27,7 @@ const textForNumberOfThreads = computed(() => {
         <small>{{ props.forum.description }}</small>
       </p>
     </v-col>
-    <v-spacer></v-spacer>
-    <v-col cols="2">
+    <v-col cols="auto" align-self="center">
       <span class="text-black">{{ textForNumberOfThreads }}</span>
     </v-col>
   </v-row>
