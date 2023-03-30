@@ -18,13 +18,13 @@ const textForNumberOfThreads = computed(() => {
   <v-row class="forum" :class="order % 2 ? 'bg-white' : 'bg-grey-dark'" justify="space-between">
     <v-col cols="5">
       <RouterLink
-        :to="{ name: 'forumView', params: { forumId: props.forum.id } }"
+        :to="{ name: 'forumView', params: { forumId: forum.id } }"
         class="text-deep-purple-darken-1"
-        >{{ props.forum.name }}</RouterLink
+        >{{ forum.name }}</RouterLink
       >
 
       <p>
-        <small>{{ props.forum.description }}</small>
+        <small>{{ forum.description }}</small>
       </p>
     </v-col>
     <v-col cols="auto" align-self="center">

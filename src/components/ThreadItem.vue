@@ -37,7 +37,10 @@ const user = computed(() => getUserById.value(props.thread.userId))
     <v-spacer></v-spacer>
     <v-col cols="2">
       <span class="text-black">{{ props.thread.posts.length }} posts</span>
-      <h6 class="text-black">Last post at {{ props.thread.lastPostAt }}</h6>
+      <h6 class="text-black">
+        Last post
+        <BaseDateAgo :timestamp="props.thread.lastPostAt"></BaseDateAgo>
+      </h6>
     </v-col>
     <v-col cols="auto" class="pr-0">
       <v-avatar size="30px" :image="user?.avatar" class="mr-2"></v-avatar>
@@ -48,7 +51,8 @@ const user = computed(() => getUserById.value(props.thread.userId))
           <small class="text-black mr-2">By {{ user?.name }}</small>
         </v-col>
         <v-col cols="12">
-          <small class="text-grey">
+          <small class="text-grey-darken-2">
+            Opened
             <BaseDateAgo :timestamp="props.thread.publishedAt"></BaseDateAgo>
           </small>
         </v-col>
