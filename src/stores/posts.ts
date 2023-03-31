@@ -4,6 +4,7 @@ import type { Post } from '@/interfaces'
 
 import { defineStore } from 'pinia'
 import appData from '@/data.json'
+import { makeFilterByHelper } from '@/utils/helpers'
 
 export const usePostsStore = defineStore('Posts', () => {
   const posts: Ref<Post[]> = ref(appData.posts)
@@ -23,9 +24,7 @@ export const usePostsStore = defineStore('Posts', () => {
     posts.value.push(completePost)
   }
 
-  const getPostsByUserId = computed(() => (userId: string) => {
-    return posts.value.filter((p) => p.userId === userId)
-  })
+  const getPostsByUserId = computed(() => makeFilterByHelper(posts.value, 'userId'))
 
   return { posts, addPost, getPostsByUserId }
 })
