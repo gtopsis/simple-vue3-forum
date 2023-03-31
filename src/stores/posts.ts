@@ -25,6 +25,7 @@ export const usePostsStore = defineStore('Posts', () => {
   }
 
   const getPostsByUserId = computed(() => makeFilterByHelper(posts.value, 'userId'))
+  const getPostsByThreadId = computed(() => makeFilterByHelper(posts.value, 'threadId'))
 
-  return { posts, addPost, getPostsByUserId }
+  return { posts, addPost, getPostsByUserId, getPostsByThreadId }
 })

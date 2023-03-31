@@ -23,9 +23,8 @@ let dialog = ref(false)
 const { getThreadById } = storeToRefs(useThreadsStore())
 const thread = computed(() => getThreadById.value(props.threadId))
 
-const getPostsByThreadId = (threadId: string | undefined) => {
-  return postsStore.posts.filter((p) => p.threadId === threadId)
-}
+const { getPostsByThreadId } = storeToRefs(postsStore)
+const postsOfThread = computed(() => getPostsByThreadId.value(thread.value.id))
 
 const createNewPost = (post: Pick<Post, 'text'>) => {
   postsStore.addPost({ ...post, threadId: thread.value?.id, userId: useAuthStore().getAuthUserId })
@@ -60,7 +59,7 @@ const openModal = () => {
 
     <v-row justify="center"> </v-row>
 
-    <PostsListing :posts="getPostsByThreadId(thread?.id)"></PostsListing>
+    <PostsListing :posts="postsOfThread"></PostsListing>
     <PostEditorModal
       :dialogEnabled="dialog"
       @save-post="createNewPost"
