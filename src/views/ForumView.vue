@@ -5,13 +5,15 @@ import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
+import type { ComputedRef } from 'vue'
+import type { Forum } from '@/interfaces'
 
 const props = defineProps<{
   forumId: string
 }>()
 
 const { getForumById } = storeToRefs(useForumsStore())
-const forum = computed(() => getForumById.value(props.forumId))
+const forum: ComputedRef<Forum> = computed(() => getForumById.value(props.forumId))
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
 const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
@@ -25,11 +27,13 @@ const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
       </v-col>
     </v-row>
 
-    <v-row class="mb-2" justify="space-between">
-      <v-col cols="auto">
+    <v-row class="mb-2" justify="space-between" no-gutters>
+      <v-col cols="12">
         <h2 class="text-white">{{ forum?.name }}</h2>
       </v-col>
-      <v-col cols="auto"> </v-col>
+      <v-col cols="12">
+        <small class="text-white">{{ forum.description }}</small>
+      </v-col>
     </v-row>
 
     <ThreadsListing :threads="threads"></ThreadsListing>
