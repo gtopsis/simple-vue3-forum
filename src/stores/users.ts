@@ -3,13 +3,12 @@ import { defineStore } from 'pinia'
 import appData from '@/data.json'
 import type { User } from '@/interfaces'
 import { computed } from 'vue'
+import { makeFindByIdHelper } from '@/utils/helpers'
 
 export const useUsersStore = defineStore('Users', () => {
   const users: User[] = reactive(appData.users)
 
-  const getUserById = computed(() => {
-    return (userId: string) => users.find((u) => u.id === userId)
-  })
+  const getUserById = computed(() => makeFindByIdHelper(users))
 
   const saveUser = (userId: string, updatedUser: User) => {
     const index = users.findIndex((u) => u.id === userId)
