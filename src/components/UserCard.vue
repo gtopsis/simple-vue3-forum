@@ -26,7 +26,7 @@ const saveUserProfile = () => {
 }
 </script>
 <template>
-  <v-card loading variant="tonal" class="pa-3">
+  <v-card loading color="white" class="pa-3">
     <v-card-title>
       <v-row justify="center">
         <v-col cols="auto">
@@ -48,8 +48,19 @@ const saveUserProfile = () => {
 
     <v-card-text>
       <v-row v-if="!isEditProfileMode">
-        <v-col>
-          <span class="text-center"> {{ userBio }} </span>
+        <v-col cols="12">
+          <small class="text-center"> {{ userBio }} </small>
+        </v-col>
+
+        <v-col cols="12">
+          <v-row justify="center">
+            <v-col cols="auto">
+              <a :href="user.twitter" tag="button">Twitter</a>
+            </v-col>
+            <v-col cols="auto">
+              <a :href="user.website" tag="button">Website</a>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
 
@@ -63,7 +74,7 @@ const saveUserProfile = () => {
     <v-card-actions>
       <v-row justify="center">
         <v-col cols="auto" v-if="!isEditProfileMode">
-          <v-btn @click="toggleEditProfileMode">Edit profile</v-btn>
+          <v-btn variant="outlined" @click="toggleEditProfileMode">Edit profile</v-btn>
         </v-col>
         <v-col cols="auto" v-else>
           <v-btn @click="toggleEditProfileMode">Cancel</v-btn>
