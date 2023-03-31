@@ -1,16 +1,16 @@
 <script setup lang="ts">
 import CategoriesListing from '../components/CategoriesListing.vue'
 import { useCategoriesStore } from '@/stores/categories'
+import TheBreadcrumb from '@/components/TheBreadcrumb.vue'
 
 const categories = useCategoriesStore().categories
-const breadcumbItems = ['Home']
 </script>
 
 <template>
   <v-container class="mt-3 px-2 py-1">
     <v-row class="threads-section-heading" no-gutters>
       <v-col cols="auto" class="pl-0">
-        <v-breadcrumbs :items="breadcumbItems"></v-breadcrumbs>
+        <TheBreadcrumb></TheBreadcrumb>
       </v-col>
     </v-row>
 
