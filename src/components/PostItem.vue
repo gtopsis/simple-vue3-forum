@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import type { Post } from '@/interfaces'
-import BaseDateAgo from './BaseDateAgo.vue'
 import { useUsersStore } from '@/stores/users'
 import { storeToRefs } from 'pinia'
-import { computed } from 'vue'
+import { computed, defineAsyncComponent } from 'vue'
+
+const BaseDateAgo = defineAsyncComponent(() => import('@/components/BaseDateAgo.vue'))
 
 const props = defineProps<{ post: Post }>()
 
@@ -51,7 +52,7 @@ const user = computed(() => getUserById.value(props.post?.userId))
               </small>
             </v-col>
             <v-col class="pa-0" cols="12">
-              <small
+              <small v-if="post.edited?.at"
                 >Last edited
                 <BaseDateAgo :timestamp="post.edited?.at"></BaseDateAgo>
               </small>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CategoriesListing from '../components/CategoriesListing.vue'
+import CategoriesListing from '@/components/CategoriesListing.vue'
 import { useCategoriesStore } from '@/stores/categories'
 import TheBreadcrumb from '@/components/TheBreadcrumb.vue'
 

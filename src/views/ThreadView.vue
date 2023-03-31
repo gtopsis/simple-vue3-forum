@@ -9,7 +9,7 @@ import { usePostsStore } from '@/stores/posts'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
 
-const PostEditorModal = defineAsyncComponent(() => import('../components/PostEditorModal.vue'))
+const PostEditorModal = defineAsyncComponent(() => import('@/components/PostEditorModal.vue'))
 
 const props = defineProps<{
   forumId: string

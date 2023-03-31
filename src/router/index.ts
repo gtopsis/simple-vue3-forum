@@ -1,8 +1,8 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 import { storeToRefs } from 'pinia'
-import { useThreadsStore } from '@/stores/threads'
 import { computed } from 'vue'
+import HomeView from '@/views/HomeView.vue'
+import { useThreadsStore } from '@/stores/threads'
 
 const routes = [
   {
@@ -26,7 +26,7 @@ const routes = [
     name: 'threadView',
     props: true,
     component: () => import('@/views/ThreadView.vue'),
-    beforeEnter(to, from, next) {
+    beforeEnter(to: any, from: any, next: any) {
       const { getThreadById } = storeToRefs(useThreadsStore())
       const thread = computed(() => getThreadById.value(to.params.threadId))
 

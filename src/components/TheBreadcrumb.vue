@@ -14,7 +14,7 @@ if (currentRouteName.value === 'home') {
   breadcrumbItems.push('Home')
 }
 if (currentRouteName.value === 'forumView') {
-  const forumId = route.params.forumId
+  const forumId = route.params.forumId as string
   const { getForumById } = storeToRefs(useForumsStore())
   const forum = computed(() => getForumById.value(forumId))
 
@@ -26,11 +26,11 @@ if (currentRouteName.value === 'forumView') {
     forum.value?.name!
   )
 } else if (currentRouteName.value === 'threadView') {
-  const forumId = route.params.forumId
+  const forumId = route.params.forumId as string
   const { getForumById } = storeToRefs(useForumsStore())
   const forum = computed(() => getForumById.value(forumId))
 
-  const threadId = route.params.threadId
+  const threadId = route.params.threadId as string
   const { getThreadById } = storeToRefs(useThreadsStore())
   const thread = computed(() => getThreadById.value(threadId))
 

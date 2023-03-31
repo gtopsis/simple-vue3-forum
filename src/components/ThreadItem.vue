@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { RouterLink } from 'vue-router'
 import type { Thread } from '@/interfaces'
-import BaseDateAgo from './BaseDateAgo.vue'
+import BaseDateAgo from '@/components/BaseDateAgo.vue'
 import { useUsersStore } from '@/stores/users'
 import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
