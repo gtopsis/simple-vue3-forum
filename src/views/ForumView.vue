@@ -14,6 +14,7 @@ const { getForumById } = storeToRefs(useForumsStore())
 const forum = computed(() => getForumById.value(props.forumId))
 if (!forum.value) {
   return
+  // TODO better handle of the case
 }
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
