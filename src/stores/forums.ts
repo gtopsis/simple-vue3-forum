@@ -11,7 +11,7 @@ export const useForumsStore = defineStore('Forums', () => {
 
   const getForumsByCategoryId = computed(() => makeFilterByHelper(forums.value, 'categoryId'))
 
-  const getForumById = computed(() => makeFindByIdHelper(forums.value))
+  const getForumById = computed(() => makeFindByIdHelper<Forum>(forums.value))
 
   return { forums, getForumsByCategoryId, getForumById }
 })

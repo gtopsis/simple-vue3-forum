@@ -5,15 +5,16 @@ import { useForumsStore } from '@/stores/forums'
 import { useThreadsStore } from '@/stores/threads'
 import { storeToRefs } from 'pinia'
 import { computed } from 'vue'
-import type { ComputedRef } from 'vue'
-import type { Forum } from '@/interfaces'
 
 const props = defineProps<{
   forumId: string
 }>()
 
 const { getForumById } = storeToRefs(useForumsStore())
-const forum: ComputedRef<Forum> = computed(() => getForumById.value(props.forumId))
+const forum = computed(() => getForumById.value(props.forumId))
+if (!forum.value) {
+  return
+}
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
 const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
