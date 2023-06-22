@@ -44,26 +44,6 @@ figcaption {
     font-size: .8rem;
 }
 
-.list-title {
-    background-color: #263959;
-    border-bottom-left-radius: 20px;
-    color: #f5f8fe;
-    font-weight: 100;
-    display: flex;
-    width: 100%;
-    justify-content: flex-start;
-    position: relative;
-    padding: 10px 20px;
-    margin: 0;
-}
-
-.list-title a {
-    color: white;
-}
-
-.list-title a:hover {
-    color: #89c6af;
-}
 
 .img-round, .avatar, .avatar-xsmall, .avatar-small, .avatar-medium, .avatar-large, .avatar-xlarge {
     border-radius: 50%;
@@ -832,13 +812,13 @@ h2 {
     }
 }
 
-.text, p, .text-xsmall, .thread-list .thread .created_at, .pagination, .post-content blockquote.small .author .time, .post-content blockquote.simple .author .time, .activity-list .activity .thread-details, span.offline, span.online, .btn-xsmall, .btn-brown, ul.breadcrumbs li:not(:last-of-type)::after, .text-small, .forum-list .forum-listing .forum-details ul.subforums, .post-content blockquote.big .author, .post-content blockquote.small .author a, .post-content blockquote.simple .author, .activity-list .activity .activity-header .title span, .btn-small, ul.breadcrumbs li, .text-large, .list-title, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large, .text-xlarge, .btn-xlarge, .btn, .btn-blue, .btn-blue-outlined, .btn-brown-outlined, .btn-green, .btn-green-outlined, .btn-red, .btn-red-outlined, .btn-ghost {
+.text, p, .text-xsmall, .thread-list .thread .created_at, .pagination, .post-content blockquote.small .author .time, .post-content blockquote.simple .author .time, .activity-list .activity .thread-details, span.offline, span.online, .btn-xsmall, .btn-brown, ul.breadcrumbs li:not(:last-of-type)::after, .text-small, .forum-list .forum-listing .forum-details ul.subforums, .post-content blockquote.big .author, .post-content blockquote.small .author a, .post-content blockquote.simple .author, .activity-list .activity .activity-header .title span, .btn-small, ul.breadcrumbs li, .text-large, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large, .text-xlarge, .btn-xlarge, .btn, .btn-blue, .btn-blue-outlined, .btn-brown-outlined, .btn-green, .btn-green-outlined, .btn-red, .btn-red-outlined, .btn-ghost {
     font-size: 16px;
     line-height: 1.5;
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
-    .text, p, .text-xsmall, .thread-list .thread .created_at, .pagination, .post-content blockquote.small .author .time, .post-content blockquote.simple .author .time, .activity-list .activity .thread-details, span.offline, span.online, .btn-xsmall, .btn-brown, ul.breadcrumbs li:not(:last-of-type)::after, .text-small, .forum-list .forum-listing .forum-details ul.subforums, .post-content blockquote.big .author, .post-content blockquote.small .author a, .post-content blockquote.simple .author, .activity-list .activity .activity-header .title span, .btn-small, ul.breadcrumbs li, .text-large, .list-title, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large, .text-xlarge, .btn-xlarge, .btn, .btn-blue, .btn-blue-outlined, .btn-brown-outlined, .btn-green, .btn-green-outlined, .btn-red, .btn-red-outlined, .btn-ghost {
+    .text, p, .text-xsmall, .thread-list .thread .created_at, .pagination, .post-content blockquote.small .author .time, .post-content blockquote.simple .author .time, .activity-list .activity .thread-details, span.offline, span.online, .btn-xsmall, .btn-brown, ul.breadcrumbs li:not(:last-of-type)::after, .text-small, .forum-list .forum-listing .forum-details ul.subforums, .post-content blockquote.big .author, .post-content blockquote.small .author a, .post-content blockquote.simple .author, .activity-list .activity .activity-header .title span, .btn-small, ul.breadcrumbs li, .text-large, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large, .text-xlarge, .btn-xlarge, .btn, .btn-blue, .btn-blue-outlined, .btn-brown-outlined, .btn-green, .btn-green-outlined, .btn-red, .btn-red-outlined, .btn-ghost {
         font-size: 15px;
     }
 }
@@ -863,12 +843,12 @@ h2 {
     }
 }
 
-.text-large, .list-title, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large {
+.text-large,  .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large {
     font-size: 18px;
 }
 
 @media (min-width: 240px) and (max-width: 720px) {
-    .text-large, .list-title, .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large {
+    .text-large,  .forum-stats ul li, .profile-card .user-website, .activity-list .activity .activity-header .title, .btn-large {
         font-size: 17px;
     }
 }
