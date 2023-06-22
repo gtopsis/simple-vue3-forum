@@ -6,7 +6,7 @@ import { computed } from 'vue'
 import { makeFindByIdHelper } from '@/utils/helpers'
 
 export const useUsersStore = defineStore('Users', () => {
-  const users: User[] = reactive(appData.users)
+  const users: User[] = reactive(<User[]>appData.users)
 
   const getUserById = computed(() => makeFindByIdHelper(users))
 

@@ -7,7 +7,7 @@ import appData from '@/data.json'
 import { makeFilterByHelper } from '@/utils/helpers'
 
 export const usePostsStore = defineStore('Posts', () => {
-  const posts: Ref<Post[]> = ref(appData.posts)
+  const posts: Ref<Post[]> = ref(<Post[]>appData.posts)
 
   const addPost = (post: Pick<Post, 'text' | 'threadId' | 'userId'>) => {
     const completePost = {

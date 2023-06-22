@@ -12,13 +12,9 @@ const props = defineProps<{
 
 const { getForumById } = storeToRefs(useForumsStore())
 const forum = computed(() => getForumById.value(props.forumId))
-if (!forum.value) {
-  return
-  // TODO better handle of the case
-}
 
 const { getThreadsByForumId } = storeToRefs(useThreadsStore())
-const threads = computed(() => getThreadsByForumId.value(forum.value?.id!))
+const threads = computed(() => (!forum.value ? [] : getThreadsByForumId.value(forum.value?.id!)))
 </script>
 
 <template>

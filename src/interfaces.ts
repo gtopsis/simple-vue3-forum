@@ -11,8 +11,8 @@ export interface Forum {
   name: string
   slug: string
   id: string
-  lastPostId?: string
-  threads?: string[]
+  lastPostId?: string | undefined
+  threads?: string[] | undefined
 }
 
 export interface Post {
@@ -21,6 +21,7 @@ export interface Post {
     by: string
     moderated: boolean
   }
+
   publishedAt: number
   text: string
   threadId: string

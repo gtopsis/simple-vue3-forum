@@ -6,7 +6,7 @@ import type { Thread } from '@/interfaces'
 import { makeFilterByHelper, makeFindByIdHelper } from '@/utils/helpers'
 
 export const useThreadsStore = defineStore('Threads', () => {
-  const threads: Ref<Thread[]> = ref(appData.threads)
+  const threads: Ref<Thread[]> = ref(<Thread[]>appData.threads)
 
   const getThreadById = computed(() => makeFindByIdHelper(threads.value))
   const getThreadsByForumId = computed(() => makeFilterByHelper(threads.value, 'forumId'))
