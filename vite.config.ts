@@ -6,7 +6,7 @@ import checker from 'vite-plugin-checker'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/',
+  base: '/simple-vue3-forum/',
   plugins: [
     vue(),
     checker({
